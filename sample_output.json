@@ -1,0 +1,1366 @@
+{
+  "engine_version": "1.3.0",
+  "rules_version": "1.3.0",
+  "model": "子平月令格局法 / 确定性计算 + 传统候选初筛",
+  "scope": "文化性、规则性分析；非经科学验证的人生预测",
+  "input": {
+    "birth_time": "2024-02-04T16:30:00+08:00",
+    "calendar_policy": "solar_jie",
+    "day_boundary": "00:00",
+    "clock_mode": "civil"
+  },
+  "meta": {
+    "input_birth": "2024-02-04T16:30:00+08:00",
+    "effective_clock": "2024-02-04T16:30:00+08:00",
+    "clock_mode": "civil",
+    "day_boundary": "00:00",
+    "late_zi_hour_stem": "same_day",
+    "term_source": "terms_2024_example.json（需自行核对版本和来源）",
+    "previous_jie": {
+      "name": "立春",
+      "at": "2024-02-04T16:26:53+08:00"
+    },
+    "next_jie": {
+      "name": "惊蛰",
+      "at": "2024-03-05T10:22:31+08:00"
+    },
+    "boundary_alerts": [],
+    "mode": "computed_from_birth_time"
+  },
+  "pillars": {
+    "year": "甲辰",
+    "month": "丙寅",
+    "day": "戊戌",
+    "hour": "庚申"
+  },
+  "computed": {
+    "day_master": "戊",
+    "stems": {
+      "year": "甲",
+      "month": "丙",
+      "day": "戊",
+      "hour": "庚"
+    },
+    "branches": {
+      "year": "辰",
+      "month": "寅",
+      "day": "戌",
+      "hour": "申"
+    },
+    "visible_ten_gods": {
+      "year": "七杀",
+      "month": "偏印",
+      "hour": "食神"
+    },
+    "hidden_stems": {
+      "year": [
+        {
+          "stem": "戊",
+          "ten_god": "比肩",
+          "status": "本气"
+        },
+        {
+          "stem": "乙",
+          "ten_god": "正官",
+          "status": "余气/中气"
+        },
+        {
+          "stem": "癸",
+          "ten_god": "正财",
+          "status": "余气/中气"
+        }
+      ],
+      "month": [
+        {
+          "stem": "甲",
+          "ten_god": "七杀",
+          "status": "本气"
+        },
+        {
+          "stem": "丙",
+          "ten_god": "偏印",
+          "status": "余气/中气"
+        },
+        {
+          "stem": "戊",
+          "ten_god": "比肩",
+          "status": "余气/中气"
+        }
+      ],
+      "day": [
+        {
+          "stem": "戊",
+          "ten_god": "比肩",
+          "status": "本气"
+        },
+        {
+          "stem": "辛",
+          "ten_god": "伤官",
+          "status": "余气/中气"
+        },
+        {
+          "stem": "丁",
+          "ten_god": "正印",
+          "status": "余气/中气"
+        }
+      ],
+      "hour": [
+        {
+          "stem": "庚",
+          "ten_god": "食神",
+          "status": "本气"
+        },
+        {
+          "stem": "壬",
+          "ten_god": "偏财",
+          "status": "余气/中气"
+        },
+        {
+          "stem": "戊",
+          "ten_god": "比肩",
+          "status": "余气/中气"
+        }
+      ]
+    },
+    "month_main_qi": {
+      "stem": "甲",
+      "ten_god": "七杀"
+    },
+    "month_hidden_exposed": [
+      "甲",
+      "丙"
+    ],
+    "branch_relations": {
+      "six_clashes": [
+        {
+          "positions": [
+            "year",
+            "day"
+          ],
+          "branches": [
+            "辰",
+            "戌"
+          ],
+          "relation": "六冲",
+          "status": "只标注结构，不等于冲破成立"
+        },
+        {
+          "positions": [
+            "month",
+            "hour"
+          ],
+          "branches": [
+            "寅",
+            "申"
+          ],
+          "relation": "六冲",
+          "status": "只标注结构，不等于冲破成立"
+        }
+      ],
+      "six_harmonies": [],
+      "three_harmonies": [],
+      "three_meetings": [],
+      "six_harms": [],
+      "punishments": [
+        {
+          "relation": "无恩之刑",
+          "branches": [
+            "寅",
+            "申"
+          ],
+          "positions": [
+            "month",
+            "hour"
+          ],
+          "completeness": "部分",
+          "status": "只标注结构；部分三刑是否论刑依流派而异"
+        }
+      ]
+    },
+    "stem_relations": {
+      "five_combinations": []
+    },
+    "facts": {
+      "day_master": "戊",
+      "day_master_element": "土",
+      "visible_ten_gods": [
+        "七杀",
+        "偏印",
+        "食神"
+      ],
+      "month_primary_hidden_stem": "甲",
+      "month_primary_ten_god": "七杀",
+      "month_hidden_exposed": [
+        "甲",
+        "丙"
+      ],
+      "month_hidden_exposed_count": 2,
+      "month_primary_exposed": true,
+      "has_month_branch_clash": true,
+      "has_month_branch_combination": false,
+      "day_master_season_state": "死",
+      "day_master_changsheng_month": "长生",
+      "siling_ten_god": "比肩",
+      "tiaohou_primary_visible": true,
+      "geju_path": [
+        "G-204"
+      ]
+    },
+    "classical": {
+      "renyuan_siling": {
+        "stem": "戊",
+        "literal": "艮土用事",
+        "segment": 1,
+        "segment_end_day": 5,
+        "capped": false,
+        "ten_god": "比肩",
+        "days_since_jie": 0.002,
+        "month_segments": [
+          {
+            "stem": "戊",
+            "days": 5,
+            "literal": "艮土用事"
+          },
+          {
+            "stem": "丙",
+            "days": 5,
+            "literal": "丙火长生"
+          },
+          {
+            "stem": "甲",
+            "days": 20,
+            "literal": "甲木"
+          }
+        ]
+      },
+      "wangxiang": {
+        "policy": "WX-SMTH",
+        "season_element": "木",
+        "by_element": {
+          "木": "旺",
+          "火": "相",
+          "土": "死",
+          "金": "囚",
+          "水": "休"
+        },
+        "day_master_state": "死",
+        "alternatives": {
+          "WX-SMTH": "死",
+          "WX-SIJI": "死"
+        }
+      },
+      "changsheng": {
+        "day_master_on": {
+          "year": "冠带",
+          "month": "长生",
+          "day": "墓",
+          "hour": "病"
+        },
+        "stem_on_own_branch": {
+          "year": "衰",
+          "month": "长生",
+          "day": "墓",
+          "hour": "临官"
+        }
+      },
+      "tiaohou": {
+        "primary": [
+          "丙"
+        ],
+        "secondary": [
+          "甲",
+          "癸"
+        ],
+        "basis": "joint",
+        "source_line": 914,
+        "quote": "三春戊土，无丙照暖，戊土不生，无甲疏噼，戊土不灵，无癸滋润，万物不长。正二月先丙后甲，癸又次之。",
+        "presence": {
+          "丙": {
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              "month"
+            ],
+            "ten_god": "偏印"
+          },
+          "甲": {
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              "month"
+            ],
+            "ten_god": "七杀"
+          },
+          "癸": {
+            "visible": [],
+            "hidden": [
+              "year"
+            ],
+            "ten_god": "正财"
+          }
+        },
+        "primary_visible": true
+      }
+    },
+    "geju": {
+      "id": "G-200",
+      "path": [
+        "G-204"
+      ],
+      "candidates": [
+        {
+          "ge": "七杀格",
+          "ten_god": "七杀",
+          "stem": "甲",
+          "rule": "G-204",
+          "role": "本气透出",
+          "status": "primary",
+          "exposed_at": [
+            "year"
+          ]
+        },
+        {
+          "ge": "偏印格",
+          "ten_god": "偏印",
+          "stem": "丙",
+          "rule": "G-204",
+          "role": "兼透",
+          "status": "parallel",
+          "exposed_at": [
+            "month"
+          ]
+        }
+      ],
+      "status": "parallel_or_review",
+      "limits": [
+        "只决定「取哪个格」的候选，不判断成格、破格、清浊与救应",
+        "「透干会支，取其清者」中的「清」未定义：多候选时一律并列"
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神；论用神变化；论建禄月劫；论阳刃",
+        "url": "https://www.donglishuzhai.net/chapter/3721.html",
+        "verification": "本版编码时原文站点无法访问，取格次序依通行版本整理，待以原文快照逐句核对；禄、刃两表已对《三命通会》卷三原文校验"
+      }
+    }
+  },
+  "traditional_candidates": [
+    {
+      "id": "G-105",
+      "name": "月令七杀见食神（初筛）",
+      "tag": "support",
+      "note": "经典中的「七杀逢制」或「食神制杀」线索；制成与否未判。",
+      "evidence": {
+        "month_primary_ten_god": "七杀",
+        "visible_ten_gods": [
+          "七杀",
+          "偏印",
+          "食神"
+        ]
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "final_judgement": false
+    },
+    {
+      "id": "G-109",
+      "name": "月令多藏干透出：并列候选",
+      "tag": "conflict",
+      "note": "多种月令藏干透出可能出现格局变化或兼格；V1不得任选其一作为结论。",
+      "evidence": {
+        "month_hidden_exposed_count": 2
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神变化",
+        "url": "https://www.donglishuzhai.net/chapter/3723.html"
+      },
+      "final_judgement": false
+    },
+    {
+      "id": "G-111",
+      "name": "月支参与六冲：需复核",
+      "tag": "risk",
+      "note": "标注月支受到冲动的结构事实，不直接认定破格；会合解冲仍须研究。",
+      "evidence": {
+        "has_month_branch_clash": true
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论刑冲会合解法",
+        "url": "https://www.donglishuzhai.net/chapter/3720.html"
+      },
+      "final_judgement": false
+    }
+  ],
+  "da_yun_start": null,
+  "da_yun_sequence": null,
+  "hypotheses": {
+    "STRENGTH-H1": {
+      "id": "STRENGTH-H1",
+      "layer": "hypothesis",
+      "status": "编者自定权重，无古籍依据；仅供敏感性观察，不得作为格局、喜忌或任何规则的输入",
+      "weights": {
+        "visible_stem": 1.0,
+        "hidden_by_order": [
+          1.0,
+          0.5,
+          0.3
+        ],
+        "month_branch_multiplier": 2.0
+      },
+      "ratio": 0.433,
+      "label": "偏弱",
+      "sensitivity": [
+        {
+          "month_branch_multiplier": 1.0,
+          "hidden_by_order": [
+            1.0,
+            0.5,
+            0.3
+          ],
+          "ratio": 0.431,
+          "label": "偏弱"
+        },
+        {
+          "month_branch_multiplier": 1.0,
+          "hidden_by_order": [
+            1.0,
+            0.3,
+            0.1
+          ],
+          "ratio": 0.419,
+          "label": "偏弱"
+        },
+        {
+          "month_branch_multiplier": 1.0,
+          "hidden_by_order": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "ratio": 0.467,
+          "label": "中间"
+        },
+        {
+          "month_branch_multiplier": 2.0,
+          "hidden_by_order": [
+            1.0,
+            0.5,
+            0.3
+          ],
+          "ratio": 0.433,
+          "label": "偏弱"
+        },
+        {
+          "month_branch_multiplier": 2.0,
+          "hidden_by_order": [
+            1.0,
+            0.3,
+            0.1
+          ],
+          "ratio": 0.4,
+          "label": "偏弱"
+        },
+        {
+          "month_branch_multiplier": 2.0,
+          "hidden_by_order": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "ratio": 0.5,
+          "label": "中间"
+        },
+        {
+          "month_branch_multiplier": 3.0,
+          "hidden_by_order": [
+            1.0,
+            0.5,
+            0.3
+          ],
+          "ratio": 0.435,
+          "label": "偏弱"
+        },
+        {
+          "month_branch_multiplier": 3.0,
+          "hidden_by_order": [
+            1.0,
+            0.3,
+            0.1
+          ],
+          "ratio": 0.386,
+          "label": "偏弱"
+        },
+        {
+          "month_branch_multiplier": 3.0,
+          "hidden_by_order": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "ratio": 0.524,
+          "label": "中间"
+        }
+      ],
+      "ratio_range": [
+        0.386,
+        0.524
+      ],
+      "stable": false,
+      "note": "标签只随假设权重而定；stable=false 表示换一组同样任意的权重就会改变结论"
+    }
+  },
+  "conclusion_status": "仅有结构信息与初筛提示；完整格局及喜忌尚未判定",
+  "unresolved": [
+    "格局兼格/变化的最终优先级",
+    "强弱轻重及救应成立条件",
+    "用神最终确认与大运流年解释",
+    "现实事件预测可靠性"
+  ],
+  "trace": [
+    {
+      "id": "C-101",
+      "type": "computed",
+      "result": "甲辰",
+      "method": "上一个立春对应公历年=2024，(年-1984) mod 60=40",
+      "inputs": {
+        "last_lichun_year": 2024
+      }
+    },
+    {
+      "id": "C-102",
+      "type": "computed",
+      "result": "丙寅",
+      "method": "上一个节确定月支，五虎遁由年干推寅月再顺推月份",
+      "inputs": {
+        "previous_jie": "立春",
+        "previous_jie_at": "2024-02-04T16:26:53+08:00",
+        "next_jie": "惊蛰",
+        "next_jie_at": "2024-03-05T10:22:31+08:00",
+        "month_index_from_yin": 0
+      }
+    },
+    {
+      "id": "C-103",
+      "type": "computed",
+      "result": "戊戌",
+      "method": "2000-01-01=戊午(index54)，日数差加54再模60",
+      "inputs": {
+        "effective_date": "2024-02-04",
+        "date_delta_days": 8800,
+        "day_boundary": "00:00"
+      }
+    },
+    {
+      "id": "C-104",
+      "type": "computed",
+      "result": "庚申",
+      "method": "子时23:00起，每2小时一支，五鼠遁推时干",
+      "inputs": {
+        "effective_clock": "2024-02-04T16:30:00+08:00",
+        "hour_branch_index": 8,
+        "hour_stem_from_day": "戊戌",
+        "late_zi_hour_stem": "same_day"
+      }
+    },
+    {
+      "id": "D-101",
+      "type": "computed",
+      "result": {
+        "year": "七杀",
+        "month": "偏印",
+        "hour": "食神"
+      },
+      "method": "由日干与年/月/时干之五行生克、阴阳同异精确映射十神"
+    },
+    {
+      "id": "D-102",
+      "type": "lookup",
+      "result": {
+        "year": [
+          {
+            "stem": "戊",
+            "ten_god": "比肩",
+            "status": "本气"
+          },
+          {
+            "stem": "乙",
+            "ten_god": "正官",
+            "status": "余气/中气"
+          },
+          {
+            "stem": "癸",
+            "ten_god": "正财",
+            "status": "余气/中气"
+          }
+        ],
+        "month": [
+          {
+            "stem": "甲",
+            "ten_god": "七杀",
+            "status": "本气"
+          },
+          {
+            "stem": "丙",
+            "ten_god": "偏印",
+            "status": "余气/中气"
+          },
+          {
+            "stem": "戊",
+            "ten_god": "比肩",
+            "status": "余气/中气"
+          }
+        ],
+        "day": [
+          {
+            "stem": "戊",
+            "ten_god": "比肩",
+            "status": "本气"
+          },
+          {
+            "stem": "辛",
+            "ten_god": "伤官",
+            "status": "余气/中气"
+          },
+          {
+            "stem": "丁",
+            "ten_god": "正印",
+            "status": "余气/中气"
+          }
+        ],
+        "hour": [
+          {
+            "stem": "庚",
+            "ten_god": "食神",
+            "status": "本气"
+          },
+          {
+            "stem": "壬",
+            "ten_god": "偏财",
+            "status": "余气/中气"
+          },
+          {
+            "stem": "戊",
+            "ten_god": "比肩",
+            "status": "余气/中气"
+          }
+        ]
+      },
+      "method": "按约定藏干表查本气、中气、余气并逐项取十神"
+    },
+    {
+      "id": "D-103",
+      "type": "observed_structure",
+      "result": {
+        "month_hidden_exposed": [
+          "甲",
+          "丙"
+        ],
+        "month_primary": "甲"
+      },
+      "method": "只检查年/月/时干是否出现月支藏干；日干不算透干"
+    },
+    {
+      "id": "D-104",
+      "type": "observed_structure",
+      "result": {
+        "six_clashes": [
+          {
+            "positions": [
+              "year",
+              "day"
+            ],
+            "branches": [
+              "辰",
+              "戌"
+            ],
+            "relation": "六冲",
+            "status": "只标注结构，不等于冲破成立"
+          },
+          {
+            "positions": [
+              "month",
+              "hour"
+            ],
+            "branches": [
+              "寅",
+              "申"
+            ],
+            "relation": "六冲",
+            "status": "只标注结构，不等于冲破成立"
+          }
+        ],
+        "six_harmonies": [],
+        "three_harmonies": [],
+        "three_meetings": [],
+        "six_harms": [],
+        "punishments": [
+          {
+            "relation": "无恩之刑",
+            "branches": [
+              "寅",
+              "申"
+            ],
+            "positions": [
+              "month",
+              "hour"
+            ],
+            "completeness": "部分",
+            "status": "只标注结构；部分三刑是否论刑依流派而异"
+          }
+        ]
+      },
+      "method": "只识别六冲、六合、三合、三会、六害、刑的存在；不判断合化或解冲"
+    },
+    {
+      "id": "D-105",
+      "type": "observed_structure",
+      "result": [],
+      "method": "四柱天干两两比对五合表；不判断合化"
+    },
+    {
+      "id": "L-301",
+      "type": "lookup",
+      "result": {
+        "stem": "戊",
+        "literal": "艮土用事",
+        "segment": 1,
+        "segment_end_day": 5,
+        "capped": false,
+        "ten_god": "比肩",
+        "days_since_jie": 0.002,
+        "month_segments": [
+          {
+            "stem": "戊",
+            "days": 5,
+            "literal": "艮土用事"
+          },
+          {
+            "stem": "丙",
+            "days": 5,
+            "literal": "丙火长生"
+          },
+          {
+            "stem": "甲",
+            "days": 20,
+            "literal": "甲木"
+          }
+        ]
+      },
+      "method": "按交节后经过天数查《三命通会》人元司事分日表",
+      "source": {
+        "book": "三命通会",
+        "section": "卷二·论人元司事",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%8C&oldid=2292392",
+        "snapshot": "sources/三命通会_卷二_wikisource_rev2292392.txt"
+      }
+    },
+    {
+      "id": "L-302",
+      "type": "lookup",
+      "result": {
+        "policy": "WX-SMTH",
+        "season_element": "木",
+        "by_element": {
+          "木": "旺",
+          "火": "相",
+          "土": "死",
+          "金": "囚",
+          "水": "休"
+        },
+        "day_master_state": "死",
+        "alternatives": {
+          "WX-SMTH": "死",
+          "WX-SIJI": "死"
+        }
+      },
+      "method": "以月支定当令五行，按生克关系得旺相休囚死",
+      "source": {
+        "book": "三命通会",
+        "section": "卷二·论五行旺相休囚死并寄生十二宫",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%8C&oldid=2292392",
+        "snapshot": "sources/三命通会_卷二_wikisource_rev2292392.txt"
+      }
+    },
+    {
+      "id": "L-303",
+      "type": "lookup",
+      "result": {
+        "day_master_on": {
+          "year": "冠带",
+          "month": "长生",
+          "day": "墓",
+          "hour": "病"
+        },
+        "stem_on_own_branch": {
+          "year": "衰",
+          "month": "长生",
+          "day": "墓",
+          "hour": "临官"
+        }
+      },
+      "method": "阳干自长生位顺行、阴干逆行十二宫",
+      "source": {
+        "book": "三命通会",
+        "section": "卷二·论天干阴阳生死；论五行旺相休囚死并寄生十二宫",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%8C&oldid=2292392",
+        "snapshot": "sources/三命通会_卷二_wikisource_rev2292392.txt"
+      }
+    },
+    {
+      "id": "L-304",
+      "type": "lookup",
+      "result": {
+        "primary": [
+          "丙"
+        ],
+        "secondary": [
+          "甲",
+          "癸"
+        ],
+        "basis": "joint",
+        "source_line": 914,
+        "quote": "三春戊土，无丙照暖，戊土不生，无甲疏噼，戊土不灵，无癸滋润，万物不长。正二月先丙后甲，癸又次之。",
+        "presence": {
+          "丙": {
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              "month"
+            ],
+            "ten_god": "偏印"
+          },
+          "甲": {
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              "month"
+            ],
+            "ten_god": "七杀"
+          },
+          "癸": {
+            "visible": [],
+            "hidden": [
+              "year"
+            ],
+            "ten_god": "正财"
+          }
+        },
+        "primary_visible": true
+      },
+      "method": "日干×月支查《穷通宝鉴》首段用神，并检查其在四柱中的明见/藏支",
+      "source": {
+        "book": "穷通宝鉴",
+        "section": "十干分论",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E7%AA%AE%E9%80%9A%E5%AF%B6%E9%91%91&oldid=2294674",
+        "snapshot": "sources/穷通宝鉴_wikisource_rev2294674.txt"
+      }
+    },
+    {
+      "id": "G-200",
+      "type": "geju_selection",
+      "result": {
+        "id": "G-200",
+        "path": [
+          "G-204"
+        ],
+        "candidates": [
+          {
+            "ge": "七杀格",
+            "ten_god": "七杀",
+            "stem": "甲",
+            "rule": "G-204",
+            "role": "本气透出",
+            "status": "primary",
+            "exposed_at": [
+              "year"
+            ]
+          },
+          {
+            "ge": "偏印格",
+            "ten_god": "偏印",
+            "stem": "丙",
+            "rule": "G-204",
+            "role": "兼透",
+            "status": "parallel",
+            "exposed_at": [
+              "month"
+            ]
+          }
+        ],
+        "status": "parallel_or_review",
+        "limits": [
+          "只决定「取哪个格」的候选，不判断成格、破格、清浊与救应",
+          "「透干会支，取其清者」中的「清」未定义：多候选时一律并列"
+        ],
+        "source": {
+          "book": "子平真诠",
+          "section": "论用神；论用神变化；论建禄月劫；论阳刃",
+          "url": "https://www.donglishuzhai.net/chapter/3721.html",
+          "verification": "本版编码时原文站点无法访问，取格次序依通行版本整理，待以原文快照逐句核对；禄、刃两表已对《三命通会》卷三原文校验"
+        }
+      },
+      "method": "按 geju_selection.order 固定次序取格；只产生候选，不判成败"
+    },
+    {
+      "id": "G-101",
+      "type": "traditional_screening",
+      "name": "月令正官见财印（初筛）",
+      "matched": false,
+      "evidence": {
+        "month_primary_ten_god": "七杀",
+        "visible_ten_gods": [
+          "七杀",
+          "偏印",
+          "食神"
+        ]
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_ten_god",
+          "op": "eq",
+          "expected": "正官",
+          "actual": "七杀",
+          "satisfied": false
+        },
+        {
+          "fact": "visible_ten_gods",
+          "op": "contains_any",
+          "expected": [
+            "正财",
+            "偏财",
+            "正印",
+            "偏印"
+          ],
+          "actual": [
+            "七杀",
+            "偏印",
+            "食神"
+          ],
+          "satisfied": true
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-102",
+      "type": "traditional_screening",
+      "name": "月令正官见伤官（初筛）",
+      "matched": false,
+      "evidence": {
+        "month_primary_ten_god": "七杀",
+        "visible_ten_gods": [
+          "七杀",
+          "偏印",
+          "食神"
+        ]
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_ten_god",
+          "op": "eq",
+          "expected": "正官",
+          "actual": "七杀",
+          "satisfied": false
+        },
+        {
+          "fact": "visible_ten_gods",
+          "op": "contains",
+          "expected": "伤官",
+          "actual": [
+            "七杀",
+            "偏印",
+            "食神"
+          ],
+          "satisfied": false
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-103",
+      "type": "traditional_screening",
+      "name": "月令食神见财（初筛）",
+      "matched": false,
+      "evidence": {
+        "month_primary_ten_god": "七杀",
+        "visible_ten_gods": [
+          "七杀",
+          "偏印",
+          "食神"
+        ]
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_ten_god",
+          "op": "eq",
+          "expected": "食神",
+          "actual": "七杀",
+          "satisfied": false
+        },
+        {
+          "fact": "visible_ten_gods",
+          "op": "contains_any",
+          "expected": [
+            "正财",
+            "偏财"
+          ],
+          "actual": [
+            "七杀",
+            "偏印",
+            "食神"
+          ],
+          "satisfied": false
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-104",
+      "type": "traditional_screening",
+      "name": "月令伤官见财（初筛）",
+      "matched": false,
+      "evidence": {
+        "month_primary_ten_god": "七杀",
+        "visible_ten_gods": [
+          "七杀",
+          "偏印",
+          "食神"
+        ]
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_ten_god",
+          "op": "eq",
+          "expected": "伤官",
+          "actual": "七杀",
+          "satisfied": false
+        },
+        {
+          "fact": "visible_ten_gods",
+          "op": "contains_any",
+          "expected": [
+            "正财",
+            "偏财"
+          ],
+          "actual": [
+            "七杀",
+            "偏印",
+            "食神"
+          ],
+          "satisfied": false
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-105",
+      "type": "traditional_screening",
+      "name": "月令七杀见食神（初筛）",
+      "matched": true,
+      "evidence": {
+        "month_primary_ten_god": "七杀",
+        "visible_ten_gods": [
+          "七杀",
+          "偏印",
+          "食神"
+        ]
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_ten_god",
+          "op": "eq",
+          "expected": "七杀",
+          "actual": "七杀",
+          "satisfied": true
+        },
+        {
+          "fact": "visible_ten_gods",
+          "op": "contains",
+          "expected": "食神",
+          "actual": [
+            "七杀",
+            "偏印",
+            "食神"
+          ],
+          "satisfied": true
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-106",
+      "type": "traditional_screening",
+      "name": "月令伤官见印（初筛）",
+      "matched": false,
+      "evidence": {
+        "month_primary_ten_god": "七杀",
+        "visible_ten_gods": [
+          "七杀",
+          "偏印",
+          "食神"
+        ]
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_ten_god",
+          "op": "eq",
+          "expected": "伤官",
+          "actual": "七杀",
+          "satisfied": false
+        },
+        {
+          "fact": "visible_ten_gods",
+          "op": "contains_any",
+          "expected": [
+            "正印",
+            "偏印"
+          ],
+          "actual": [
+            "七杀",
+            "偏印",
+            "食神"
+          ],
+          "satisfied": true
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-107",
+      "type": "traditional_screening",
+      "name": "月令财星见官（初筛）",
+      "matched": false,
+      "evidence": {
+        "month_primary_ten_god": "七杀",
+        "visible_ten_gods": [
+          "七杀",
+          "偏印",
+          "食神"
+        ]
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_ten_god",
+          "op": "in",
+          "expected": [
+            "正财",
+            "偏财"
+          ],
+          "actual": "七杀",
+          "satisfied": false
+        },
+        {
+          "fact": "visible_ten_gods",
+          "op": "contains",
+          "expected": "正官",
+          "actual": [
+            "七杀",
+            "偏印",
+            "食神"
+          ],
+          "satisfied": false
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-108",
+      "type": "traditional_screening",
+      "name": "月令比劫秉令，另行取用",
+      "matched": false,
+      "evidence": {
+        "month_primary_ten_god": "七杀"
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_ten_god",
+          "op": "in",
+          "expected": [
+            "比肩",
+            "劫财"
+          ],
+          "actual": "七杀",
+          "satisfied": false
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神",
+        "url": "https://www.donglishuzhai.net/chapter/3721.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-109",
+      "type": "traditional_screening",
+      "name": "月令多藏干透出：并列候选",
+      "matched": true,
+      "evidence": {
+        "month_hidden_exposed_count": 2
+      },
+      "conditions": [
+        {
+          "fact": "month_hidden_exposed_count",
+          "op": "gte",
+          "expected": 2,
+          "actual": 2,
+          "satisfied": true
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神变化",
+        "url": "https://www.donglishuzhai.net/chapter/3723.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-110",
+      "type": "traditional_screening",
+      "name": "月令本气未透：保留本气候选",
+      "matched": false,
+      "evidence": {
+        "month_primary_exposed": true
+      },
+      "conditions": [
+        {
+          "fact": "month_primary_exposed",
+          "op": "eq",
+          "expected": false,
+          "actual": true,
+          "satisfied": false
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神变化",
+        "url": "https://www.donglishuzhai.net/chapter/3723.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-111",
+      "type": "traditional_screening",
+      "name": "月支参与六冲：需复核",
+      "matched": true,
+      "evidence": {
+        "has_month_branch_clash": true
+      },
+      "conditions": [
+        {
+          "fact": "has_month_branch_clash",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "satisfied": true
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论刑冲会合解法",
+        "url": "https://www.donglishuzhai.net/chapter/3720.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-112",
+      "type": "traditional_screening",
+      "name": "月支参与合会：需复核",
+      "matched": false,
+      "evidence": {
+        "has_month_branch_combination": false
+      },
+      "conditions": [
+        {
+          "fact": "has_month_branch_combination",
+          "op": "eq",
+          "expected": true,
+          "actual": false,
+          "satisfied": false
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论刑冲会合解法",
+        "url": "https://www.donglishuzhai.net/chapter/3720.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-113",
+      "type": "traditional_screening",
+      "name": "月支冲合互见：并列待审",
+      "matched": false,
+      "evidence": {
+        "has_month_branch_clash": true,
+        "has_month_branch_combination": false
+      },
+      "conditions": [
+        {
+          "fact": "has_month_branch_clash",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "satisfied": true
+        },
+        {
+          "fact": "has_month_branch_combination",
+          "op": "eq",
+          "expected": true,
+          "actual": false,
+          "satisfied": false
+        }
+      ],
+      "source": {
+        "book": "子平真诠",
+        "section": "论刑冲会合解法",
+        "url": "https://www.donglishuzhai.net/chapter/3720.html"
+      },
+      "limitations": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    }
+  ]
+}

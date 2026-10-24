@@ -1,0 +1,17 @@
+# 个人命例与回测（含真实出生时间），不入库
+/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_*.md
+/backtest_liunian.py
+/backtest_predictions.json
+/backtest_scenarios.md
+/events*.json
+
+# 构建产物：由 site/build.py 从根目录复制生成
+/site/public/engine/
+/site/public/docs/
+/output*.json
+
+# 本地环境
+__pycache__/
+.DS_Store
+.wrangler/
+.claude/

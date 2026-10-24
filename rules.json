@@ -1,0 +1,2778 @@
+{
+  "schema_version": "1.3.0",
+  "system": "子平八字_AI_可审计规则集",
+  "scope": "公历换算后之四柱、干支、十神、藏干、关系识别及格局初筛。不输出已经证明的个人命运预测。",
+  "default_policy": {
+    "year_boundary": "lichun_instant",
+    "month_boundary": "12_jie_instant",
+    "day_boundary": "00:00",
+    "hour_boundaries": "two_hour_zi_23:00",
+    "clock": "civil_local_standard",
+    "solar_time": "off",
+    "unsupported": "return_unresolved"
+  },
+  "indexing": "all_indices_zero_based",
+  "stems": [
+    "甲",
+    "乙",
+    "丙",
+    "丁",
+    "戊",
+    "己",
+    "庚",
+    "辛",
+    "壬",
+    "癸"
+  ],
+  "branches": [
+    "子",
+    "丑",
+    "寅",
+    "卯",
+    "辰",
+    "巳",
+    "午",
+    "未",
+    "申",
+    "酉",
+    "戌",
+    "亥"
+  ],
+  "stem_element": {
+    "甲": "木",
+    "乙": "木",
+    "丙": "火",
+    "丁": "火",
+    "戊": "土",
+    "己": "土",
+    "庚": "金",
+    "辛": "金",
+    "壬": "水",
+    "癸": "水"
+  },
+  "stem_yinyang": {
+    "甲": "阳",
+    "乙": "阴",
+    "丙": "阳",
+    "丁": "阴",
+    "戊": "阳",
+    "己": "阴",
+    "庚": "阳",
+    "辛": "阴",
+    "壬": "阳",
+    "癸": "阴"
+  },
+  "producing_cycle": [
+    "木",
+    "火",
+    "土",
+    "金",
+    "水"
+  ],
+  "controlling_cycle": [
+    "木",
+    "土",
+    "水",
+    "火",
+    "金"
+  ],
+  "hidden_stems_main_first": {
+    "子": [
+      "癸"
+    ],
+    "丑": [
+      "己",
+      "癸",
+      "辛"
+    ],
+    "寅": [
+      "甲",
+      "丙",
+      "戊"
+    ],
+    "卯": [
+      "乙"
+    ],
+    "辰": [
+      "戊",
+      "乙",
+      "癸"
+    ],
+    "巳": [
+      "丙",
+      "庚",
+      "戊"
+    ],
+    "午": [
+      "丁",
+      "己"
+    ],
+    "未": [
+      "己",
+      "丁",
+      "乙"
+    ],
+    "申": [
+      "庚",
+      "壬",
+      "戊"
+    ],
+    "酉": [
+      "辛"
+    ],
+    "戌": [
+      "戊",
+      "辛",
+      "丁"
+    ],
+    "亥": [
+      "壬",
+      "甲"
+    ]
+  },
+  "month_jie": [
+    {
+      "name": "立春",
+      "branch": "寅",
+      "solar_longitude_degrees": 315,
+      "month_index_from_yin": 0
+    },
+    {
+      "name": "惊蛰",
+      "branch": "卯",
+      "solar_longitude_degrees": 345,
+      "month_index_from_yin": 1
+    },
+    {
+      "name": "清明",
+      "branch": "辰",
+      "solar_longitude_degrees": 15,
+      "month_index_from_yin": 2
+    },
+    {
+      "name": "立夏",
+      "branch": "巳",
+      "solar_longitude_degrees": 45,
+      "month_index_from_yin": 3
+    },
+    {
+      "name": "芒种",
+      "branch": "午",
+      "solar_longitude_degrees": 75,
+      "month_index_from_yin": 4
+    },
+    {
+      "name": "小暑",
+      "branch": "未",
+      "solar_longitude_degrees": 105,
+      "month_index_from_yin": 5
+    },
+    {
+      "name": "立秋",
+      "branch": "申",
+      "solar_longitude_degrees": 135,
+      "month_index_from_yin": 6
+    },
+    {
+      "name": "白露",
+      "branch": "酉",
+      "solar_longitude_degrees": 165,
+      "month_index_from_yin": 7
+    },
+    {
+      "name": "寒露",
+      "branch": "戌",
+      "solar_longitude_degrees": 195,
+      "month_index_from_yin": 8
+    },
+    {
+      "name": "立冬",
+      "branch": "亥",
+      "solar_longitude_degrees": 225,
+      "month_index_from_yin": 9
+    },
+    {
+      "name": "大雪",
+      "branch": "子",
+      "solar_longitude_degrees": 255,
+      "month_index_from_yin": 10
+    },
+    {
+      "name": "小寒",
+      "branch": "丑",
+      "solar_longitude_degrees": 285,
+      "month_index_from_yin": 11
+    }
+  ],
+  "five_tiger_yin_month_start": {
+    "甲": "丙",
+    "己": "丙",
+    "乙": "戊",
+    "庚": "戊",
+    "丙": "庚",
+    "辛": "庚",
+    "丁": "壬",
+    "壬": "壬",
+    "戊": "甲",
+    "癸": "甲"
+  },
+  "five_rat_zi_hour_start": {
+    "甲": "甲",
+    "己": "甲",
+    "乙": "丙",
+    "庚": "丙",
+    "丙": "戊",
+    "辛": "戊",
+    "丁": "庚",
+    "壬": "庚",
+    "戊": "壬",
+    "癸": "壬"
+  },
+  "day_anchor": {
+    "date": "2000-01-01",
+    "sexagenary": "戊午",
+    "index": 54,
+    "calendar": "proleptic_gregorian",
+    "policy": "local_date_after_day_boundary"
+  },
+  "six_clashes": [
+    [
+      "子",
+      "午"
+    ],
+    [
+      "丑",
+      "未"
+    ],
+    [
+      "寅",
+      "申"
+    ],
+    [
+      "卯",
+      "酉"
+    ],
+    [
+      "辰",
+      "戌"
+    ],
+    [
+      "巳",
+      "亥"
+    ]
+  ],
+  "six_harmonies": [
+    [
+      "子",
+      "丑"
+    ],
+    [
+      "寅",
+      "亥"
+    ],
+    [
+      "卯",
+      "戌"
+    ],
+    [
+      "辰",
+      "酉"
+    ],
+    [
+      "巳",
+      "申"
+    ],
+    [
+      "午",
+      "未"
+    ]
+  ],
+  "three_harmonies": {
+    "水": [
+      "申",
+      "子",
+      "辰"
+    ],
+    "木": [
+      "亥",
+      "卯",
+      "未"
+    ],
+    "火": [
+      "寅",
+      "午",
+      "戌"
+    ],
+    "金": [
+      "巳",
+      "酉",
+      "丑"
+    ]
+  },
+  "three_meetings": {
+    "木": [
+      "寅",
+      "卯",
+      "辰"
+    ],
+    "火": [
+      "巳",
+      "午",
+      "未"
+    ],
+    "金": [
+      "申",
+      "酉",
+      "戌"
+    ],
+    "水": [
+      "亥",
+      "子",
+      "丑"
+    ]
+  },
+  "stem_five_combinations": [
+    [
+      "甲",
+      "己",
+      "土"
+    ],
+    [
+      "乙",
+      "庚",
+      "金"
+    ],
+    [
+      "丙",
+      "辛",
+      "水"
+    ],
+    [
+      "丁",
+      "壬",
+      "木"
+    ],
+    [
+      "戊",
+      "癸",
+      "火"
+    ]
+  ],
+  "six_harms": [
+    [
+      "子",
+      "未"
+    ],
+    [
+      "丑",
+      "午"
+    ],
+    [
+      "寅",
+      "巳"
+    ],
+    [
+      "卯",
+      "辰"
+    ],
+    [
+      "申",
+      "亥"
+    ],
+    [
+      "酉",
+      "戌"
+    ]
+  ],
+  "punishments": {
+    "无恩之刑": [
+      "寅",
+      "巳",
+      "申"
+    ],
+    "恃势之刑": [
+      "丑",
+      "戌",
+      "未"
+    ],
+    "无礼之刑": [
+      "子",
+      "卯"
+    ],
+    "自刑": [
+      "辰",
+      "午",
+      "酉",
+      "亥"
+    ]
+  },
+  "luck_policies": {
+    "LUCK-P1": {
+      "name": "阳男阴女顺行、阴男阳女逆行；出生至相邻「节」的时长按 3 日折 1 年",
+      "direction": {
+        "male": {
+          "阳": "forward",
+          "阴": "reverse"
+        },
+        "female": {
+          "阳": "reverse",
+          "阴": "forward"
+        }
+      },
+      "direction_basis": "年干阴阳（以立春换年后的年柱为准）",
+      "boundary": "顺行数至下一个节，逆行数至上一个节；中气不计",
+      "conversion": {
+        "days_per_year": 3,
+        "note": "1 日=4 个月，1 时辰(2小时)=10 日；按精确时长线性折算"
+      },
+      "source": "通行《渊海子平》《三命通会》起运法之一；各书折算口径不一，故作为可选政策版本化，不作默认"
+    }
+  },
+  "ten_god_definition": [
+    {
+      "relation": "same",
+      "same_polarity": "比肩",
+      "different_polarity": "劫财"
+    },
+    {
+      "relation": "self_produces_other",
+      "same_polarity": "食神",
+      "different_polarity": "伤官"
+    },
+    {
+      "relation": "self_controls_other",
+      "same_polarity": "偏财",
+      "different_polarity": "正财"
+    },
+    {
+      "relation": "other_controls_self",
+      "same_polarity": "七杀",
+      "different_polarity": "正官"
+    },
+    {
+      "relation": "other_produces_self",
+      "same_polarity": "偏印",
+      "different_polarity": "正印"
+    }
+  ],
+  "rules": [
+    {
+      "id": "G-101",
+      "name": "月令正官见财印（初筛）",
+      "layer": "traditional_screening",
+      "when": {
+        "all": [
+          {
+            "fact": "month_primary_ten_god",
+            "op": "eq",
+            "value": "正官"
+          },
+          {
+            "fact": "visible_ten_gods",
+            "op": "contains_any",
+            "values": [
+              "正财",
+              "偏财",
+              "正印",
+              "偏印"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "support",
+        "text": "《子平真诠》〈论用神成败救应〉提到官逢财印等情况；须进一步核查位置、刑冲、破害和救应，不代表已经成格。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-102",
+      "name": "月令正官见伤官（初筛）",
+      "layer": "traditional_screening",
+      "when": {
+        "all": [
+          {
+            "fact": "month_primary_ten_god",
+            "op": "eq",
+            "value": "正官"
+          },
+          {
+            "fact": "visible_ten_gods",
+            "op": "contains",
+            "value": "伤官"
+          }
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "risk",
+        "text": "仅表示《子平真诠》官格见伤的潜在条件；不可跳过制化、救应。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-103",
+      "name": "月令食神见财（初筛）",
+      "layer": "traditional_screening",
+      "when": {
+        "all": [
+          {
+            "fact": "month_primary_ten_god",
+            "op": "eq",
+            "value": "食神"
+          },
+          {
+            "fact": "visible_ten_gods",
+            "op": "contains_any",
+            "values": [
+              "正财",
+              "偏财"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "support",
+        "text": "经典中的「食神生财」结构线索，不等于财运判断。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-104",
+      "name": "月令伤官见财（初筛）",
+      "layer": "traditional_screening",
+      "when": {
+        "all": [
+          {
+            "fact": "month_primary_ten_god",
+            "op": "eq",
+            "value": "伤官"
+          },
+          {
+            "fact": "visible_ten_gods",
+            "op": "contains_any",
+            "values": [
+              "正财",
+              "偏财"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "support",
+        "text": "经典中的「伤官生财」结构线索，身强弱及其他条件未判。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-105",
+      "name": "月令七杀见食神（初筛）",
+      "layer": "traditional_screening",
+      "when": {
+        "all": [
+          {
+            "fact": "month_primary_ten_god",
+            "op": "eq",
+            "value": "七杀"
+          },
+          {
+            "fact": "visible_ten_gods",
+            "op": "contains",
+            "value": "食神"
+          }
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "support",
+        "text": "经典中的「七杀逢制」或「食神制杀」线索；制成与否未判。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-106",
+      "name": "月令伤官见印（初筛）",
+      "layer": "traditional_screening",
+      "when": {
+        "all": [
+          {
+            "fact": "month_primary_ten_god",
+            "op": "eq",
+            "value": "伤官"
+          },
+          {
+            "fact": "visible_ten_gods",
+            "op": "contains_any",
+            "values": [
+              "正印",
+              "偏印"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "support",
+        "text": "经典中的「伤官佩印」线索；是否有效须另判旺衰、位置、通根。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-107",
+      "name": "月令财星见官（初筛）",
+      "layer": "traditional_screening",
+      "when": {
+        "all": [
+          {
+            "fact": "month_primary_ten_god",
+            "op": "in",
+            "values": [
+              "正财",
+              "偏财"
+            ]
+          },
+          {
+            "fact": "visible_ten_gods",
+            "op": "contains",
+            "value": "正官"
+          }
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "support",
+        "text": "经典中的「财生官」候选结构，不等于富贵预测。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神成败救应",
+        "url": "https://www.donglishuzhai.net/chapter/3722.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-108",
+      "name": "月令比劫秉令，另行取用",
+      "layer": "traditional_screening",
+      "when": {
+        "fact": "month_primary_ten_god",
+        "op": "in",
+        "values": [
+          "比肩",
+          "劫财"
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "needs_review",
+        "text": "依《子平真诠》关于建禄月劫的论述，应查看其余干支财官煞食等，不能把比劫主气硬判为财官等常格。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神",
+        "url": "https://www.donglishuzhai.net/chapter/3721.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-109",
+      "name": "月令多藏干透出：并列候选",
+      "layer": "traditional_screening",
+      "when": {
+        "fact": "month_hidden_exposed_count",
+        "op": "gte",
+        "value": 2
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "conflict",
+        "text": "多种月令藏干透出可能出现格局变化或兼格；V1不得任选其一作为结论。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神变化",
+        "url": "https://www.donglishuzhai.net/chapter/3723.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-110",
+      "name": "月令本气未透：保留本气候选",
+      "layer": "traditional_screening",
+      "when": {
+        "fact": "month_primary_exposed",
+        "op": "eq",
+        "value": false
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "needs_review",
+        "text": "月令本气未透并不自动排除其作用，仍要比较透出藏干及局部组合。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论用神变化",
+        "url": "https://www.donglishuzhai.net/chapter/3723.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-111",
+      "name": "月支参与六冲：需复核",
+      "layer": "traditional_screening",
+      "when": {
+        "fact": "has_month_branch_clash",
+        "op": "eq",
+        "value": true
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "risk",
+        "text": "标注月支受到冲动的结构事实，不直接认定破格；会合解冲仍须研究。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论刑冲会合解法",
+        "url": "https://www.donglishuzhai.net/chapter/3720.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-112",
+      "name": "月支参与合会：需复核",
+      "layer": "traditional_screening",
+      "when": {
+        "fact": "has_month_branch_combination",
+        "op": "eq",
+        "value": true
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "needs_review",
+        "text": "月支与他支构成六合、三合或三会；《子平真诠》〈论刑冲会合解法〉讨论合可解冲、合可改变月令作用，V1 不判定合化与否。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论刑冲会合解法",
+        "url": "https://www.donglishuzhai.net/chapter/3720.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    },
+    {
+      "id": "G-113",
+      "name": "月支冲合互见：并列待审",
+      "layer": "traditional_screening",
+      "when": {
+        "all": [
+          {
+            "fact": "has_month_branch_clash",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "has_month_branch_combination",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "then": {
+        "type": "candidate_evidence",
+        "tag": "conflict",
+        "text": "月支同时被冲与被合，涉及「合以解冲」「冲以解合」的先后、远近判断，V1 不选择任一结论。",
+        "final_judgement": false
+      },
+      "source": {
+        "book": "子平真诠",
+        "section": "论刑冲会合解法",
+        "url": "https://www.donglishuzhai.net/chapter/3720.html"
+      },
+      "uncertainty": "初筛条件，未覆盖古籍全部前提，不得升级为成败或吉凶结论"
+    }
+  ],
+  "classical_tables": {
+    "lu_yangren": {
+      "id": "L-305",
+      "lu": {
+        "甲": "寅",
+        "乙": "卯",
+        "丙": "巳",
+        "丁": "午",
+        "戊": "巳",
+        "己": "午",
+        "庚": "申",
+        "辛": "酉",
+        "壬": "亥",
+        "癸": "子"
+      },
+      "yangren": {
+        "甲": "卯",
+        "丙": "午",
+        "戊": "午",
+        "庚": "酉",
+        "壬": "子"
+      },
+      "quotes": [
+        "甲禄寅，乙禄卯，庚禄申，辛禄酉，壬禄亥，癸禄子，丙禄已，丁禄午，戊寄已，已寄午",
+        "故羊刃常居禄前一辰",
+        "子平以甲丙戊庚壬五阳干有刃，乙丁巳辛癸五阴干无刃"
+      ],
+      "notes": [
+        "原文「已」即「巳」，戊、己寄禄于巳、午。",
+        "羊刃取禄前一辰，只取五阳干；阴干是否有刃各派不一，本表从「五阴干无刃」。"
+      ],
+      "source": {
+        "book": "三命通会",
+        "section": "卷三·论十干禄；论羊刃",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%B8%89&oldid=2184219",
+        "snapshot": "sources/三命通会_卷三_wikisource_rev2184219.txt"
+      }
+    },
+    "renyuan_siling": {
+      "id": "L-301",
+      "table": {
+        "寅": [
+          {
+            "stem": "戊",
+            "days": 5,
+            "literal": "艮土用事"
+          },
+          {
+            "stem": "丙",
+            "days": 5,
+            "literal": "丙火长生"
+          },
+          {
+            "stem": "甲",
+            "days": 20,
+            "literal": "甲木"
+          }
+        ],
+        "卯": [
+          {
+            "stem": "甲",
+            "days": 7,
+            "literal": "甲木用事"
+          },
+          {
+            "stem": "乙",
+            "days": 23,
+            "literal": "乙木"
+          }
+        ],
+        "辰": [
+          {
+            "stem": "乙",
+            "days": 7,
+            "literal": "乙木用事"
+          },
+          {
+            "stem": "壬",
+            "days": 5,
+            "literal": "壬水墓库"
+          },
+          {
+            "stem": "戊",
+            "days": 18,
+            "literal": "戊土"
+          }
+        ],
+        "巳": [
+          {
+            "stem": "戊",
+            "days": 7,
+            "literal": "戊土"
+          },
+          {
+            "stem": "庚",
+            "days": 5,
+            "literal": "庚金长生"
+          },
+          {
+            "stem": "丙",
+            "days": 18,
+            "literal": "丙火"
+          }
+        ],
+        "午": [
+          {
+            "stem": "丙",
+            "days": 7,
+            "literal": "丙火用事"
+          },
+          {
+            "stem": "丁",
+            "days": 23,
+            "literal": "丁火"
+          }
+        ],
+        "未": [
+          {
+            "stem": "丁",
+            "days": 7,
+            "literal": "丁火用事"
+          },
+          {
+            "stem": "甲",
+            "days": 5,
+            "literal": "甲木墓库"
+          },
+          {
+            "stem": "己",
+            "days": 18,
+            "literal": "己土"
+          }
+        ],
+        "申": [
+          {
+            "stem": "戊",
+            "days": 5,
+            "literal": "坤土用事"
+          },
+          {
+            "stem": "壬",
+            "days": 5,
+            "literal": "壬水长生"
+          },
+          {
+            "stem": "庚",
+            "days": 20,
+            "literal": "庚金"
+          }
+        ],
+        "酉": [
+          {
+            "stem": "庚",
+            "days": 7,
+            "literal": "庚金用事"
+          },
+          {
+            "stem": "辛",
+            "days": 23,
+            "literal": "辛金"
+          }
+        ],
+        "戌": [
+          {
+            "stem": "辛",
+            "days": 7,
+            "literal": "辛金用事"
+          },
+          {
+            "stem": "丙",
+            "days": 5,
+            "literal": "丙火墓库"
+          },
+          {
+            "stem": "戊",
+            "days": 18,
+            "literal": "戊土"
+          }
+        ],
+        "亥": [
+          {
+            "stem": "戊",
+            "days": 5,
+            "literal": "戊土"
+          },
+          {
+            "stem": "甲",
+            "days": 5,
+            "literal": "甲木长生"
+          },
+          {
+            "stem": "壬",
+            "days": 20,
+            "literal": "壬水用事"
+          }
+        ],
+        "子": [
+          {
+            "stem": "壬",
+            "days": 7,
+            "literal": "壬水用事"
+          },
+          {
+            "stem": "癸",
+            "days": 23,
+            "literal": "癸水"
+          }
+        ],
+        "丑": [
+          {
+            "stem": "癸",
+            "days": 7,
+            "literal": "癸水用事"
+          },
+          {
+            "stem": "庚",
+            "days": 5,
+            "literal": "庚金墓库"
+          },
+          {
+            "stem": "己",
+            "days": 18,
+            "literal": "己土"
+          }
+        ]
+      },
+      "notes": [
+        "《三命通会》版本：墓库位取阳干（辰壬、未甲、戌丙、丑庚），与 hidden_stems_main_first 的辰癸、未乙、戌丁、丑辛不同；午无己土。两表用途不同，引擎并列输出，不互相改写。",
+        "艮土（寅）、坤土（申）原文未分阴阳，此处取戊，属编码约定。",
+        "各月合计 30 日；实际节间 29.4–31.5 日，超出 30 日者仍归末段。",
+        "《渊海子平》等书另有分日版本（如寅月戊七丙七甲十六），须另立 policy，不得混用。"
+      ],
+      "source": {
+        "book": "三命通会",
+        "section": "卷二·论人元司事",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%8C&oldid=2292392",
+        "snapshot": "sources/三命通会_卷二_wikisource_rev2292392.txt"
+      }
+    },
+    "wangxiang": {
+      "id": "L-302",
+      "rule": {
+        "states": {
+          "旺": "与当令五行相同",
+          "相": "当令所生",
+          "休": "生当令者",
+          "囚": "克当令者",
+          "死": "当令所克"
+        },
+        "quote": "盛德乘时曰旺。如春木旺，旺则生火，火乃木之子，子乘父业，故火相；……故水休……故金囚……所以春木克土则死。"
+      },
+      "policies": {
+        "WX-SMTH": {
+          "name": "《三命通会》〈论五行旺相休囚死〉：春木、夏火、六月土、秋金、冬水",
+          "season_element": {
+            "寅": "木",
+            "卯": "木",
+            "辰": "木",
+            "巳": "火",
+            "午": "火",
+            "未": "土",
+            "申": "金",
+            "酉": "金",
+            "戌": "金",
+            "亥": "水",
+            "子": "水",
+            "丑": "水"
+          },
+          "note": "原文只说「六月土旺」；辰、戌、丑归所在季节。"
+        },
+        "WX-SIJI": {
+          "name": "四季月（辰未戌丑）皆土旺",
+          "season_element": {
+            "寅": "木",
+            "卯": "木",
+            "辰": "土",
+            "巳": "火",
+            "午": "火",
+            "未": "土",
+            "申": "金",
+            "酉": "金",
+            "戌": "土",
+            "亥": "水",
+            "子": "水",
+            "丑": "土"
+          },
+          "note": "后世通行口径之一，非本表原文；仅作可选对照。"
+        }
+      },
+      "default_policy": "WX-SMTH",
+      "source": {
+        "book": "三命通会",
+        "section": "卷二·论五行旺相休囚死并寄生十二宫",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%8C&oldid=2292392",
+        "snapshot": "sources/三命通会_卷二_wikisource_rev2292392.txt"
+      }
+    },
+    "changsheng": {
+      "id": "L-303",
+      "stages": [
+        "长生",
+        "沐浴",
+        "冠带",
+        "临官",
+        "帝旺",
+        "衰",
+        "病",
+        "死",
+        "墓",
+        "绝",
+        "胎",
+        "养"
+      ],
+      "start": {
+        "甲": "亥",
+        "乙": "午",
+        "丙": "寅",
+        "丁": "酉",
+        "戊": "寅",
+        "己": "酉",
+        "庚": "巳",
+        "辛": "子",
+        "壬": "申",
+        "癸": "卯"
+      },
+      "direction": {
+        "阳": "forward",
+        "阴": "reverse"
+      },
+      "principle": "「阳生阴死，阳死阴生，循环逆顺」：阳干自长生位顺行十二宫，阴干逆行；戊随丙、己随丁。",
+      "death_quotes": {
+        "甲": "故甲木死于午。",
+        "乙": "故乙木死于亥。",
+        "丙": "故丙火生于寅而死于酉。",
+        "丁": "故丁生于酉而死于寅也。",
+        "戊": "故戊土生于寅而死于酉。",
+        "己": "故己土生于酉而死于寅。",
+        "庚": "故庚金生于巳而死于子。",
+        "辛": "故辛金生于子而死于巳也。",
+        "壬": "故壬水生于申而死于卯也。",
+        "癸": "故癸水生于卯而死于申。"
+      },
+      "notes": [
+        "另有「阴阳同生同死」与「戊随壬、己随癸（水土同宫）」等口径，本表未采用，须另立 policy。",
+        "原文：「见生旺者未必便作吉论，见休囚死绝未必便作凶言」——仅为状态标签。"
+      ],
+      "source": {
+        "book": "三命通会",
+        "section": "卷二·论天干阴阳生死；论五行旺相休囚死并寄生十二宫",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%8C&oldid=2292392",
+        "snapshot": "sources/三命通会_卷二_wikisource_rev2292392.txt"
+      }
+    },
+    "tiaohou": {
+      "id": "L-304",
+      "table": {
+        "甲": {
+          "寅": {
+            "primary": [
+              "丙",
+              "癸"
+            ],
+            "secondary": [],
+            "basis": "month",
+            "source_line": 47,
+            "quote": "正月甲木，初春尚有余寒，得丙癸逢，富贵双全。癸藏丙透，名寒木向阳，主大富贵。倘风水不及，亦不失儒林俊秀。"
+          },
+          "卯": {
+            "primary": [
+              "庚"
+            ],
+            "secondary": [
+              "戊",
+              "己"
+            ],
+            "basis": "month",
+            "source_line": 59,
+            "quote": "二月甲木，庚金得所，名阳刃驾杀，可云小贵，异途显达，或主武职，但要财资之。柱中逢才，英雄独压万人。"
+          },
+          "辰": {
+            "primary": [
+              "庚"
+            ],
+            "secondary": [
+              "壬"
+            ],
+            "basis": "month",
+            "source_line": 61,
+            "quote": "三月甲木，木气相竭。先取庚金，次用壬水。庚壬两透，一榜堪图。但要运用相生，风水阴德，方许富贵。"
+          },
+          "巳": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丁"
+            ],
+            "basis": "month",
+            "source_line": 76,
+            "quote": "四月甲木退气，丙火司权，先癸后丁。"
+          },
+          "午": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丁",
+              "庚"
+            ],
+            "basis": "joint",
+            "source_line": 84,
+            "quote": "五六月甲木，木性虚焦，一理共推。五月先癸后丁庚金次之。六月三伏生寒，丁火退气。先丁后庚，无癸亦可。"
+          },
+          "未": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "joint",
+            "source_line": 84,
+            "quote": "五六月甲木，木性虚焦，一理共推。五月先癸后丁庚金次之。六月三伏生寒，丁火退气。先丁后庚，无癸亦可。"
+          },
+          "申": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 117,
+            "quote": "七月甲木，丁火为尊，庚金次之，庚金不可少。火隔水不能镕金，故丁火镕金，必赖甲木引助，方成洪炉。"
+          },
+          "酉": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "丙",
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 119,
+            "quote": "八月甲木，木囚金旺。丁火为先，次用丙火，庚金再次。"
+          },
+          "戌": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "壬",
+              "癸",
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 133,
+            "quote": "九月甲木，木星凋零，独爱丁火，壬癸滋扶，丁壬癸透，戊己亦透，此命配得中和，可许一榜。"
+          },
+          "亥": {
+            "primary": [
+              "庚",
+              "丁"
+            ],
+            "secondary": [
+              "丙",
+              "戊"
+            ],
+            "basis": "month",
+            "source_line": 154,
+            "quote": "十月甲木，庚丁为要，丙火次之。忌壬水泛身，须戊土制之。"
+          },
+          "子": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "庚",
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 162,
+            "quote": "十一月甲木，木性生寒，丁先庚后，丙火佐之。癸水司权，为火金之病。庚丁两透，支见巳寅，科甲有准，风水不及，选拔有之。"
+          },
+          "丑": {
+            "primary": [
+              "庚"
+            ],
+            "secondary": [
+              "丁"
+            ],
+            "basis": "month",
+            "source_line": 170,
+            "quote": "十二月甲木，天寒气冻，木性极寒，无生发之象，先用庚噼甲，方引丁火始得木火有通明之象，故丁次之。"
+          }
+        },
+        "乙": {
+          "寅": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 180,
+            "quote": "正月乙木，必须用丙，因天气尤有余寒，非丙不暖，虽有癸水，恐凝寒气，故以丙火为先，癸水次之。"
+          },
+          "卯": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 186,
+            "quote": "二月乙木，阳气渐升，木不寒矣，以丙为君，癸为臣，丙癸两透，不透庚金，大富大贵。"
+          },
+          "辰": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 196,
+            "quote": "三月乙木，阳气愈炽，先癸后丙。"
+          },
+          "巳": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙",
+              "辛",
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 213,
+            "quote": "四月乙木，自有丙火，耑取癸水为尊。四月乙木专用癸水，丙火酌用，虽以庚辛佐癸，须辛透为清。"
+          },
+          "午": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 219,
+            "quote": "五月乙木，丁火司权，禾稼俱旱。上半月属阳，仍用癸水。下半月属阴，三伏生寒，丙癸齐用。",
+            "condition_note": "原文：上半月仍用癸水，下半月丙癸齐用。"
+          },
+          "未": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 225,
+            "quote": "六月乙木，木性且寒，柱多金水，丙火为尊。支成水局，乙得无伤。癸水透干，大富大贵。"
+          },
+          "申": {
+            "primary": [
+              "丙",
+              "癸"
+            ],
+            "secondary": [
+              "己"
+            ],
+            "basis": "month",
+            "source_line": 246,
+            "quote": "七月乙木，庚金乘令，庚虽输情于乙妹，怎奈干乙难合支金。柱见庚多，乙难受载。或丙透干，又加巳出埋金，此格可云科甲。"
+          },
+          "酉": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 254,
+            "quote": "八月乙木，芝兰禾稼均退。以丹桂为乙木。在白露之后，桂蕊未开，耑用癸水以滋桂萼。若秋分后，桂花已开，却喜向阳，又宜用丙，癸水次之，丙癸两透，科甲名臣。",
+            "condition_note": "原文：白露后耑用癸水；秋分后宜用丙火，癸水次之。"
+          },
+          "戌": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "辛"
+            ],
+            "basis": "month",
+            "source_line": 268,
+            "quote": "九月乙木，根枯叶落，必赖癸水滋养。如见甲申时，名为藤萝系甲，可秋可冬。若见癸水，又遇辛金发水之源，定主科甲。"
+          },
+          "亥": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "戊"
+            ],
+            "basis": "month",
+            "source_line": 275,
+            "quote": "十月乙木，木不受气，而壬水司令，取丙为用，戊土次之。丙戊两透，科甲定然。有丙无戊，虽不科甲，亦入儒林。"
+          },
+          "子": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [],
+            "basis": "month",
+            "source_line": 279,
+            "quote": "十一月乙木，花木寒冻，一阳来复，喜用丙火解冻，则花木有向阳之意，不宜用癸以冻花木，故耑用丙火。"
+          },
+          "丑": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [],
+            "basis": "season",
+            "source_line": 287,
+            "quote": "冬月之木，虽取戊制水，不可作用，耑取丙火则可。用火者，木妻、火子。用土者，火妻、土子。"
+          }
+        },
+        "丙": {
+          "寅": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 317,
+            "quote": "正月丙火，三阳开泰，火气渐炎，取壬为尊，庚金佐之。壬庚两透，科甲定然。即壬透庚藏，亦有异途显达。"
+          },
+          "卯": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "己"
+            ],
+            "basis": "month",
+            "source_line": 364,
+            "quote": "二月丙火，阳气舒升，耑用壬水。壬透天干，不见丁化，加以庚辛己亦透，壬水有根，定主科甲。"
+          },
+          "辰": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 389,
+            "quote": "三月丙火，气渐炎升，用壬水。或成土局，取甲为辅，壬不可离。壬甲两透，科甲定宜，惟忌庚出制甲，则秀才而已。"
+          },
+          "巳": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 402,
+            "quote": "四月丙火，建禄于巳，火势炎炎，宜专用壬水，解炎威之力，成既济之功。如无壬水，孤阳失辅，难透清光。"
+          },
+          "午": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 430,
+            "quote": "五月丙火，得壬高透，方为上命。或一壬无庚，亦主贡监，犹防戊己出干，丁壬化合，则为平人。"
+          },
+          "未": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 456,
+            "quote": "六月丙火退气，三伏生寒，壬水为用，取庚辅佐。"
+          },
+          "申": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [],
+            "basis": "month",
+            "source_line": 484,
+            "quote": "七月丙火，太阳转西，阳气衰矣。日近西山，见土皆晦，惟日照湖海，暮夜光天，故仍用壬水，辅映光辉。"
+          },
+          "酉": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [],
+            "basis": "month",
+            "source_line": 501,
+            "quote": "八月丙火，日近黄昏，丙火之余光，存于光湖，仍用壬水辅映。"
+          },
+          "戌": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "壬"
+            ],
+            "basis": "month",
+            "source_line": 527,
+            "quote": "九月丙火，火气愈退，所忌土晦光火，必须先用甲木，次取壬水。甲壬两透，富贵非凡。若无壬水，得癸透干，亦可，虽不科甲，异路功名。"
+          },
+          "亥": {
+            "primary": [
+              "甲",
+              "戊",
+              "庚"
+            ],
+            "secondary": [],
+            "basis": "month",
+            "source_line": 553,
+            "quote": "十月丙火，太阳失令，得见甲戊庚出干，可云科甲，主为人性好清高，斯文领袖。如辛透见辰，名化合逢时，主大贵。"
+          },
+          "子": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "戊"
+            ],
+            "basis": "month",
+            "source_line": 575,
+            "quote": "十一月丙火，冬至一阳生，弱中复强，壬水为最，戊土佐之。"
+          },
+          "丑": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 601,
+            "quote": "十二月丙火，气进二阳，侮雪欺霜，喜壬为用。己土司令，土多又不可少甲。壬甲两透，科甲堪宜，甲藏则秀才而已。"
+          }
+        },
+        "丁": {
+          "寅": {
+            "primary": [
+              "庚"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 639,
+            "quote": "正月丁火，甲木当权，乃为母旺，非庚不能噼甲，何以引丁，姑用庚金。"
+          },
+          "卯": {
+            "primary": [
+              "庚"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 664,
+            "quote": "二月丁火，溼乙伤丁，先庚后甲，非庚不能去乙，非甲不能引丁。庚甲两透，科甲定然。庚透甲藏，亦有生贡。"
+          },
+          "辰": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 688,
+            "quote": "三月丁火，戊土司令，洩弱丁气，先用甲木引丁制土，次看庚金。庚甲两透，定主科甲。或一藏一透，终非白丁。"
+          },
+          "巳": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 697,
+            "quote": "四月丁火乘旺，虽取甲引丁，必用庚噼甲。伐甲、方云木火通明。甲多、又取庚为先。但四柱忌见癸水。"
+          },
+          "午": {
+            "primary": [
+              "壬",
+              "庚"
+            ],
+            "secondary": [
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 716,
+            "quote": "遇年透隔位之壬，不贪丁合者，忠而且厚。或支成火局，干见火出，得庚壬两透者，科甲定然。",
+            "condition_note": "原文先言「不宜乱用甲木」，用神取自同段「得庚壬两透者，科甲定然……得一癸透，名独杀当权」。"
+          },
+          "未": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "壬"
+            ],
+            "basis": "month",
+            "source_line": 754,
+            "quote": "六月之丁，阴柔退气，但值三伏生寒，丁弱极矣，专取甲木，壬水次之。"
+          },
+          "申": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "丙",
+              "庚"
+            ],
+            "basis": "joint",
+            "source_line": 779,
+            "quote": "三秋甲庚丙并用，仍分优劣，何也？七月甲丙，申中有庚，八月甲丙庚皆用，七八月或无甲木，乙亦可用，为枯草引灯，却不离丙晒也。"
+          },
+          "酉": {
+            "primary": [
+              "甲",
+              "丙",
+              "庚"
+            ],
+            "secondary": [],
+            "basis": "joint",
+            "source_line": 779,
+            "quote": "三秋甲庚丙并用，仍分优劣，何也？七月甲丙，申中有庚，八月甲丙庚皆用，七八月或无甲木，乙亦可用，为枯草引灯，却不离丙晒也。"
+          },
+          "戌": {
+            "primary": [
+              "甲",
+              "庚"
+            ],
+            "secondary": [],
+            "basis": "joint",
+            "source_line": 779,
+            "quote": "三秋甲庚丙并用，仍分优劣，何也？七月甲丙，申中有庚，八月甲丙庚皆用，七八月或无甲木，乙亦可用，为枯草引灯，却不离丙晒也。"
+          },
+          "亥": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "season",
+            "source_line": 866,
+            "quote": "三冬丁火，甲木为尊，庚金佐之，癸戊权宜酌用可也。"
+          },
+          "子": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "season",
+            "source_line": 866,
+            "quote": "三冬丁火，甲木为尊，庚金佐之，癸戊权宜酌用可也。"
+          },
+          "丑": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "season",
+            "source_line": 866,
+            "quote": "三冬丁火，甲木为尊，庚金佐之，癸戊权宜酌用可也。"
+          }
+        },
+        "戊": {
+          "寅": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲",
+              "癸"
+            ],
+            "basis": "joint",
+            "source_line": 914,
+            "quote": "三春戊土，无丙照暖，戊土不生，无甲疏噼，戊土不灵，无癸滋润，万物不长。正二月先丙后甲，癸又次之。"
+          },
+          "卯": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲",
+              "癸"
+            ],
+            "basis": "joint",
+            "source_line": 914,
+            "quote": "三春戊土，无丙照暖，戊土不生，无甲疏噼，戊土不灵，无癸滋润，万物不长。正二月先丙后甲，癸又次之。"
+          },
+          "辰": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "丙",
+              "癸"
+            ],
+            "basis": "joint",
+            "source_line": 914,
+            "quote": "三春戊土，无丙照暖，戊土不生，无甲疏噼，戊土不灵，无癸滋润，万物不长。正二月先丙后甲，癸又次之。"
+          },
+          "巳": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "丙",
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 957,
+            "quote": "四月戊土，阳气发升，寒气内藏，外实内虚，不畏火炎，无阳气相催，万物不长，故先用甲疏噼，次取丙癸为佐。"
+          },
+          "午": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲",
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 978,
+            "quote": "五月戊土，仲夏火炎，先看壬水，次取甲木，丙火酌用，用癸力微。"
+          },
+          "未": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙",
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 988,
+            "quote": "六月戊土，遇夏干枯，先看癸水，次用丙火甲木。癸丙两透，科甲中人。或有癸无丙，见甲可许秀才。"
+          },
+          "申": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "癸",
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1016,
+            "quote": "七月戊土，阳气渐入，寒气渐出，先丙后癸，甲木次之。丙癸甲透者，富贵极品。癸藏丙透，不仅秀才。"
+          },
+          "酉": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 1036,
+            "quote": "八月戊土，金洩身寒，赖丙照暖，喜水滋润，先丙后癸，不必木疏。丙癸两透，科甲中人。"
+          },
+          "戌": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "癸",
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1044,
+            "quote": "九月戊土当权，不可专用丙，先看甲木，次取癸水，却忌化合。见金先用癸水，后取丙火，配合支干，方成有生之土，定发云程。"
+          },
+          "亥": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1082,
+            "quote": "十月戊土，时值小阳，阳气略出，先用甲木，次取丙火。非甲、土不灵。非丙、土不暖，安能生发万物。"
+          },
+          "子": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "joint",
+            "source_line": 1104,
+            "quote": "十一二月严寒冰冻，丙火为专，甲木为佐。丙甲两透，桃浪之人，丙出甲藏，采芹食饩。丙藏甲出，佐杂前程。"
+          },
+          "丑": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "joint",
+            "source_line": 1104,
+            "quote": "十一二月严寒冰冻，丙火为专，甲木为佐。丙甲两透，桃浪之人，丙出甲藏，采芹食饩。丙藏甲出，佐杂前程。"
+          }
+        },
+        "己": {
+          "寅": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "戊"
+            ],
+            "basis": "month",
+            "source_line": 1134,
+            "quote": "正月己土，田园犹冻，盖因腊气未除，余寒未退，故丙为尊。得丙照暖，万物自生，忌见壬水，反为己病，何也？壬乃江湖之水，湖水一发，则田园洗荡，变为沙土，而根苗尽没矣。",
+            "condition_note": "戊为「壬多要见戊制」之条件用法。"
+          },
+          "卯": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "癸",
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1142,
+            "quote": "二月己土，阳气渐升，虽禾稼未成，万物出土，田园未展，先取甲木疏之，忌合。次取癸水润之。"
+          },
+          "辰": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "癸",
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1165,
+            "quote": "三月己土，正栽培禾稼之时，先丙后癸，土暖而润，随用甲疏，三者俱透天干，必官居黄阁。"
+          },
+          "巳": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "season",
+            "source_line": 1191,
+            "quote": "三夏己土，杂气才官，禾稼在田，最喜甘沛，取癸为要，次用丙火。夏无太阳，禾稼不长，故无癸曰旱田，无丙曰孤阴。"
+          },
+          "午": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "season",
+            "source_line": 1191,
+            "quote": "三夏己土，杂气才官，禾稼在田，最喜甘沛，取癸为要，次用丙火。夏无太阳，禾稼不长，故无癸曰旱田，无丙曰孤阴。"
+          },
+          "未": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "season",
+            "source_line": 1191,
+            "quote": "三夏己土，杂气才官，禾稼在田，最喜甘沛，取癸为要，次用丙火。夏无太阳，禾稼不长，故无癸曰旱田，无丙曰孤阴。"
+          },
+          "申": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙",
+              "辛"
+            ],
+            "basis": "season",
+            "source_line": 1238,
+            "quote": "总之，三秋己土，先癸后丙，取辛辅癸。九月土盛，宜甲木疏之，余皆酌用。"
+          },
+          "酉": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "丙",
+              "辛"
+            ],
+            "basis": "season",
+            "source_line": 1238,
+            "quote": "总之，三秋己土，先癸后丙，取辛辅癸。九月土盛，宜甲木疏之，余皆酌用。"
+          },
+          "戌": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "癸",
+              "丙"
+            ],
+            "basis": "season",
+            "source_line": 1238,
+            "quote": "总之，三秋己土，先癸后丙，取辛辅癸。九月土盛，宜甲木疏之，余皆酌用。"
+          },
+          "亥": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲",
+              "戊"
+            ],
+            "basis": "season",
+            "source_line": 1256,
+            "quote": "三冬己土，溼泥寒冻，非丙暖不生，取丙为尊，甲木参酌。戊土癸水不用。惟初冬壬旺，取戊制之。"
+          },
+          "子": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "season",
+            "source_line": 1256,
+            "quote": "三冬己土，溼泥寒冻，非丙暖不生，取丙为尊，甲木参酌。戊土癸水不用。惟初冬壬旺，取戊制之。"
+          },
+          "丑": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "season",
+            "source_line": 1256,
+            "quote": "三冬己土，溼泥寒冻，非丙暖不生，取丙为尊，甲木参酌。戊土癸水不用。惟初冬壬旺，取戊制之。"
+          }
+        },
+        "庚": {
+          "寅": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1298,
+            "quote": "正月庚金，木旺之际，有土皆死，不能生金，且金之寒气未除，先用丙暖庚性，又虑土厚埋金，须甲疏洩。"
+          },
+          "卯": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "甲",
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 1323,
+            "quote": "二月庚金，柱中自然有乙，当令之乙，见庚必输情于乙，此金有暗强之势，如秋金一理，故二月庚金，专用丁火，借甲引丁，借庚噼甲。"
+          },
+          "辰": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "丁"
+            ],
+            "basis": "month",
+            "source_line": 1356,
+            "quote": "三月庚金，戊土司令，无生金之理，有埋金之忧，故先甲后丁，不用庚噼甲。三月之庚，土旺金顽，顽金宜丁，旺土须甲，乏甲不能立业，乏丁焉能成名。"
+          },
+          "巳": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "戊",
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1378,
+            "quote": "四月庚金，长生于巳，巳内有戊。丙不镕金，故不畏火炎，丙亦可作用，但先壬水，方得中和，故曰群金生夏，喜用勾陈。"
+          },
+          "午": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 1388,
+            "quote": "五月庚金，丁火旺烈，庚金败地，专用壬水，癸又次之。壬透癸藏，支见庚辛，必然科甲，切忌戊己透干制水、则否。"
+          },
+          "未": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1394,
+            "quote": "六月庚金，三伏生寒，顽钝极矣，先用丁火，次取甲木。丁甲两透名显身荣，忌癸伤丁。有甲无丁、庸俗。"
+          },
+          "申": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1421,
+            "quote": "七月庚金，刚锐极矣。专用丁火煅炼，次取甲木引丁，故曰：秋金锐锐最为奇，壬癸相逢总不宜，如逢木火来成局，试看福寿与天齐。"
+          },
+          "酉": {
+            "primary": [
+              "丁",
+              "甲"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1429,
+            "quote": "八月庚金，刚锐未退，用丁用甲，丙不可少。若丁甲透，又见一丙，功名显赫，且见羊刃，无刑剋，丙杀藏支，名为羊刃驾杀，主出将入相，直介忠臣。"
+          },
+          "戌": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "壬"
+            ],
+            "basis": "month",
+            "source_line": 1455,
+            "quote": "九月庚金，戊土司令，最怕土厚埋金，宜先用甲疏，后用壬洗，则金自出矣。忌见己土浊壬。"
+          },
+          "亥": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "丙",
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1481,
+            "quote": "十月庚金，水冷性寒，非丁莫造，非丙不暖。丁甲两透，支无水局，一榜有之。支藏丙火，桃浪之仙。"
+          },
+          "子": {
+            "primary": [
+              "丁",
+              "甲"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1498,
+            "quote": "十一月庚金，天气严寒，仍取丁甲，次取丙火照暖。或丁甲两透，丙在支中，必主科甲。即无丙火，亦有衣衿。"
+          },
+          "丑": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "丁",
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1522,
+            "quote": "十二月庚金，寒气太重，且多湿泥，愈寒愈冻，先取丙火解冻，次取丁火炼金，甲亦不可少。"
+          }
+        },
+        "辛": {
+          "寅": {
+            "primary": [
+              "己",
+              "壬"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 1543,
+            "quote": "正月辛金，阳气舒而寒气未除，不知正月建寅，中有长生之丙，解去寒气，忌甲木司权，辛金失令，取己土为生身之本，欲得辛金发现，全赖壬水之功，己壬两透，支见庚制甲，科甲定然。"
+          },
+          "卯": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1559,
+            "quote": "二月辛金，阳和之际，壬水为尊，见戊己为病。得甲制伏，则辛金不致埋没，壬水不致混浊，合此者必身入玉堂。"
+          },
+          "辰": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1597,
+            "quote": "三月辛金，戊土司令，辛承正气，母旺子相，先壬后甲。壬甲两透，富贵必然。壬透甲藏，廪贡不失。"
+          },
+          "巳": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲",
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 1606,
+            "quote": "四月辛金，时逢首夏，忌丙火之燥烈，喜壬水之洗淘。支成金局，水透出干，有木制戊，名一清澈底，科甲功名。"
+          },
+          "午": {
+            "primary": [
+              "壬",
+              "己"
+            ],
+            "secondary": [
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 1620,
+            "quote": "五月辛金，壬、癸、己、三者皆用。或壬己两透，支见癸水，不剋，定主显达。即己藏支，亦有廪贡。"
+          },
+          "未": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "庚",
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1630,
+            "quote": "六月辛金，己土当权，辅助太多，恐掩金光，先用壬水，取庚佐之。壬庚两透，科甲功名，即不出干，藏支得所，亦有荣华。"
+          },
+          "申": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲",
+              "戊"
+            ],
+            "basis": "month",
+            "source_line": 1651,
+            "quote": "七月辛金，壬不在多，故书云：水浅金多，号曰体全之象，壬水为尊，甲戊酌用可也，癸水不可为用。"
+          },
+          "酉": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1659,
+            "quote": "八月辛金，当权得令，旺之极矣，专用壬水淘洗火，故云：金见水以流通。如见戊己，则生扶太过，故以土为病，见甲制土、方妙。"
+          },
+          "戌": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1691,
+            "quote": "九月辛金，戊土司令，母旺子相，须甲疏土，壬洩旺金，先壬后甲。壬甲两透，桃洞之仙。"
+          },
+          "亥": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1723,
+            "quote": "十月辛金，时值小阳，阳气渐升，寒气将降，先用壬水，次取丙火，壬丙两透，金榜题名，何也？盖辛金有壬水丙火，名金白水清，又在亥月故发。"
+          },
+          "子": {
+            "primary": [
+              "壬",
+              "丙"
+            ],
+            "secondary": [],
+            "basis": "month",
+            "source_line": 1729,
+            "quote": "十一月辛金，癸水司令，为寒冬雨露，切忌癸出冻金，而困丙火，壬丙两透，不见戊癸，衣锦腰金。"
+          },
+          "丑": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "壬",
+              "戊",
+              "己"
+            ],
+            "basis": "month",
+            "source_line": 1741,
+            "quote": "十二月辛金，丙先壬后，戊己次之。"
+          }
+        },
+        "壬": {
+          "寅": {
+            "primary": [
+              "庚"
+            ],
+            "secondary": [
+              "丙",
+              "戊"
+            ],
+            "basis": "month",
+            "source_line": 1781,
+            "quote": "正月壬水，汪洋之象，能并百川之流，然水性柔弱，宜用庚金之源，庶不致汪洋无度。有庚丙戊三者齐透，科甲功名。"
+          },
+          "卯": {
+            "primary": [
+              "戊"
+            ],
+            "secondary": [
+              "辛",
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 1797,
+            "quote": "二月壬水，寒气初除，有并流之象，不用丙暖，专取戊土辛金。二月壬水，先戊后辛，庚金次之。"
+          },
+          "辰": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 1807,
+            "quote": "三月壬水，戊土司权，恐有推山填海之患，先用甲疏季土，次取庚金。甲庚俱透，科甲定然。"
+          },
+          "巳": {
+            "primary": [
+              "壬"
+            ],
+            "secondary": [
+              "辛",
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 1821,
+            "quote": "四月壬水，丙火司权，水弱极矣，专取壬水比肩为助，次取辛金发源，且暗合丙火，庚金为佐。"
+          },
+          "午": {
+            "primary": [
+              "癸"
+            ],
+            "secondary": [
+              "庚",
+              "辛"
+            ],
+            "basis": "month",
+            "source_line": 1847,
+            "quote": "五月壬水，丁旺壬弱，取癸为用，取庚为佐。无庚不能发水，无癸不能伤丁。五月壬水，辛癸亦可参用，其理与四月皆同。"
+          },
+          "未": {
+            "primary": [
+              "辛"
+            ],
+            "secondary": [
+              "甲",
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 1864,
+            "quote": "六月壬水，己土当权，丁火退气，先用辛金癸水，次用甲木噼土。六月壬水，先辛后甲，次取癸水。"
+          },
+          "申": {
+            "primary": [
+              "戊"
+            ],
+            "secondary": [
+              "丁"
+            ],
+            "basis": "month",
+            "source_line": 1875,
+            "quote": "七月壬水，专用戊土。丁火为佐。"
+          },
+          "酉": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 1901,
+            "quote": "八月壬水，专用甲木，庚金次之。用甲者，水妻、木子。"
+          },
+          "戌": {
+            "primary": [
+              "甲"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1928,
+            "quote": "九月壬水，专用甲木，次用丙火。用土者，火妻土子。"
+          },
+          "亥": {
+            "primary": [
+              "戊"
+            ],
+            "secondary": [
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 1943,
+            "quote": "十月壬水司权，至旺之极，取戊为用，若生辰日干，又见辰时，必须戊透，又须庚制甲，不伤戊土，戊庚两全，定主豋科乃第，位显权高。"
+          },
+          "子": {
+            "primary": [
+              "戊"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 1960,
+            "quote": "十一月壬水，阳刃帮身，较前更旺，先取戊土，次用丙火，丙戊两透，富贵荣华。有戊无丙，略可言富。"
+          },
+          "丑": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 1981,
+            "quote": "十二月壬水，旺极复衰，何也？上半月癸辛主事，故旺，专用丙火。下半月己土主事，故衰。",
+            "condition_note": "原文：上半月专用丙火；下半月亦用丙火，甲木佐之。"
+          }
+        },
+        "癸": {
+          "寅": {
+            "primary": [
+              "辛"
+            ],
+            "secondary": [
+              "丙",
+              "庚"
+            ],
+            "basis": "month",
+            "source_line": 2000,
+            "quote": "正月癸水，辛金为主，庚金次之，丙亦不可少。若无庚辛，虽有丙火，无用之人。或火多土多，残疾不免。"
+          },
+          "卯": {
+            "primary": [
+              "庚"
+            ],
+            "secondary": [
+              "辛"
+            ],
+            "basis": "month",
+            "source_line": 2004,
+            "quote": "二月癸水，不刚不柔，乙木司令，洩弱元神，专以庚金为用，辛金次之。庚辛俱透，无丁出干者，贵由科甲。"
+          },
+          "辰": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "辛",
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 2024,
+            "quote": "三月癸水，要分清明谷雨。清明后、火气未炽，专用丙火，为阴阳合谐。谷雨后，虽用丙火，尚宜辛甲佐之。",
+            "condition_note": "原文：清明后专用丙火；谷雨后虽用丙火，尚宜辛甲佐之。"
+          },
+          "巳": {
+            "primary": [
+              "辛"
+            ],
+            "secondary": [
+              "庚",
+              "壬"
+            ],
+            "basis": "month",
+            "source_line": 2053,
+            "quote": "四月癸水，喜辛金为用，无辛用庚。若辛高透，不见丁火，加以壬透，主科名荣贵，声播四夷。"
+          },
+          "午": {
+            "primary": [
+              "庚",
+              "辛"
+            ],
+            "secondary": [
+              "壬",
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 2057,
+            "quote": "五月癸水，至弱无根，必须庚辛为生身之本，但丁火司权，金难敌火，安能滋养癸水，宜见比劫，方得辛金之用。"
+          },
+          "未": {
+            "primary": [
+              "庚",
+              "辛"
+            ],
+            "secondary": [
+              "壬",
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 2063,
+            "quote": "六月癸水，有上下月之分。下半月庚辛有气，上半月庚辛休囚。凡六癸日、多不验者，何也？俗士不知此理。",
+            "condition_note": "原文：上半月金神衰弱宜比劫助身；下半月庚辛有气。"
+          },
+          "申": {
+            "primary": [
+              "丁"
+            ],
+            "secondary": [
+              "甲"
+            ],
+            "basis": "month",
+            "source_line": 2078,
+            "quote": "七月癸水，正母旺子相之时，癸虽死申，殊不知申中有庚生之，名死处逢生，弱中复强，即运行西北，亦不死也。"
+          },
+          "酉": {
+            "primary": [
+              "辛"
+            ],
+            "secondary": [
+              "丙"
+            ],
+            "basis": "month",
+            "source_line": 2098,
+            "quote": "八月癸水，辛金虚灵，非顽金可比，正金白水清，故取辛金为用，丙火佐之。名水暖金温。"
+          },
+          "戌": {
+            "primary": [
+              "辛"
+            ],
+            "secondary": [
+              "甲",
+              "癸"
+            ],
+            "basis": "month",
+            "source_line": 2113,
+            "quote": "九月癸水，失令无根，戊土司权，剋制太过，专用辛金发水之源，要比肩滋甲制戊方妙。或辛甲两透，支见子癸，定主平步青云，或癸甲两透，富贵成名。"
+          },
+          "亥": {
+            "primary": [
+              "庚",
+              "辛"
+            ],
+            "secondary": [],
+            "basis": "month",
+            "source_line": 2130,
+            "quote": "十月癸水，旺中有弱，何也？因亥摇木，洩散元神，宜用庚辛为妙。得庚辛两透，不见丁伤者，功名有准。"
+          },
+          "子": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "辛"
+            ],
+            "basis": "month",
+            "source_line": 2147,
+            "quote": "十一月癸水，值冰冻之时，金水无交欢之象，专用丙火解冻，庶不致成冰，又要辛金滋扶，无丙有辛，不妙。"
+          },
+          "丑": {
+            "primary": [
+              "丙"
+            ],
+            "secondary": [
+              "壬",
+              "戊"
+            ],
+            "basis": "month",
+            "source_line": 2157,
+            "quote": "十二月癸水，寒极成冰，万物不能舒泰，宜丙火解冻。或丙透年时，加以壬透，支中多戊，名水辅阳光，主显达名臣，无戊者，异途之职。"
+          }
+        }
+      },
+      "notes": [
+        "primary/secondary 由编者依原文「先/尊/专用/为要」与「次/佐/辅/酌用」划分，逐格附 quote 与行号以便复核。",
+        "basis=season 表示原文该月无专段，取季节总论；basis=joint 表示数月合论。",
+        "原文同段多有「或支成火局……」等条件分支，本表只收首段主用神，条件分支未编码。",
+        "调候是寒暖燥湿的用神取法，与《子平真诠》的月令格局是不同体系，引擎并列输出，不合并。"
+      ],
+      "source": {
+        "book": "穷通宝鉴",
+        "section": "十干分论",
+        "url": "https://zh.wikisource.org/w/index.php?title=%E7%AA%AE%E9%80%9A%E5%AF%B6%E9%91%91&oldid=2294674",
+        "snapshot": "sources/穷通宝鉴_wikisource_rev2294674.txt"
+      }
+    }
+  },
+  "geju_selection": {
+    "id": "G-200",
+    "layer": "traditional_screening",
+    "name": "月令取格（按《子平真诠》通行次序编码）",
+    "order": [
+      {
+        "id": "G-201",
+        "when": "月支为日干之禄（L-305）",
+        "result": "建禄格；不以月令本身为用，另取天干透出的财、官、杀、食、伤为候选"
+      },
+      {
+        "id": "G-202",
+        "when": "阳干且月支为日干之羊刃（L-305）",
+        "result": "阳刃格；同样另取透干财官杀食伤为候选"
+      },
+      {
+        "id": "G-203",
+        "when": "月令本气对日主为比肩或劫财（且非 G-201/202）",
+        "result": "月劫（比劫秉令）；先取月支中非比劫且透出的藏干，否则另取透干财官杀食伤"
+      },
+      {
+        "id": "G-204",
+        "when": "月令本气透出（年/月/时干）",
+        "result": "以本气十神为格；若其他藏干亦透，列为兼透并列候选"
+      },
+      {
+        "id": "G-205",
+        "when": "本气不透，而中气/余气（非比劫）有透出",
+        "result": "以透出者十神为格；多于一个时并列，不择一"
+      },
+      {
+        "id": "G-206",
+        "when": "月支藏干全不透",
+        "result": "仍以本气十神为格，标「未透」"
+      },
+      {
+        "id": "G-207",
+        "when": "月支参与完整的三合或三会，且局之五行异于本气五行",
+        "result": "追加「会局」候选（局五行对日主之十神），needs_review"
+      }
+    ],
+    "ten_god_to_ge": {
+      "正官": "正官格",
+      "七杀": "七杀格",
+      "正财": "正财格",
+      "偏财": "偏财格",
+      "正印": "正印格",
+      "偏印": "偏印格",
+      "食神": "食神格",
+      "伤官": "伤官格"
+    },
+    "source": {
+      "book": "子平真诠",
+      "section": "论用神；论用神变化；论建禄月劫；论阳刃",
+      "url": "https://www.donglishuzhai.net/chapter/3721.html",
+      "verification": "本版编码时原文站点无法访问，取格次序依通行版本整理，待以原文快照逐句核对；禄、刃两表已对《三命通会》卷三原文校验"
+    },
+    "limits": [
+      "只决定「取哪个格」的候选，不判断成格、破格、清浊与救应",
+      "「透干会支，取其清者」中的「清」未定义：多候选时一律并列"
+    ]
+  },
+  "hypotheses": {
+    "STRENGTH-H1": {
+      "layer": "hypothesis",
+      "status": "编者自定权重，无古籍依据；仅供敏感性观察，不得作为格局、喜忌或任何规则的输入",
+      "method": "帮身=比肩、劫财、正印、偏印；耗身=其余六神。统计年/月/时三明干及四支藏干；日主本身不计。ratio=帮身/(帮身+耗身)。",
+      "weights": {
+        "visible_stem": 1.0,
+        "hidden_by_order": [
+          1.0,
+          0.5,
+          0.3
+        ],
+        "month_branch_multiplier": 2.0
+      },
+      "labels": {
+        "偏强": "ratio>0.55",
+        "偏弱": "ratio<0.45",
+        "中间": "其余（不作结论）"
+      },
+      "sensitivity_grid": {
+        "month_branch_multiplier": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "hidden_by_order": [
+          [
+            1.0,
+            0.5,
+            0.3
+          ],
+          [
+            1.0,
+            0.3,
+            0.1
+          ],
+          [
+            1.0,
+            1.0,
+            1.0
+          ]
+        ]
+      },
+      "stability_rule": "只有全部 9 组权重给出同一标签时才标 stable=true；否则为 unstable，说明结论依赖于任意权重"
+    }
+  },
+  "non_implemented": [
+    "完整旺衰强弱判定",
+    "合化成立条件",
+    "地支刑害破之消解优先级",
+    "成败救应的完整充要条件",
+    "《穷通宝鉴》各月条件分支（如「支成火局」「一派庚金」）",
+    "旺衰的有文献依据的量化标准（STRENGTH-H1 仅为假设）",
+    "神煞取舍",
+    "除 LUCK-P1 以外的起运流派（如按日数取整、虚岁口径）；未声明 luck_policy 时不推起运",
+    "大运流年事件预测",
+    "可校验的现实预测模型"
+  ],
+  "output_constraints": [
+    "十神和藏干必须按表与算法输出，不得凭常识补写。",
+    "一个月令同时有多个藏干透出时必须显示全部候选，不能不解释就择一。",
+    "刑冲合会害只标为结构事件，合不自动视为化，合不自动解冲。",
+    "不得将未经过科学验证的传统格局判断写成事实性人生结论。",
+    "若缺少准确节气时刻，程序不能输出自称精确的年柱或月柱。",
+    "每个候选判断须保留rule_id、事实依据、原典出处与未覆盖前提。"
+  ],
+  "sources": [
+    {
+      "id": "HKOTERM",
+      "name": "香港天文台：二十四节气",
+      "url": "https://www.hko.gov.hk/tc/gts/time/24solarterms.htm"
+    },
+    {
+      "id": "HKOCALENDAR",
+      "name": "香港天文台：今夕是何年",
+      "url": "https://www.hko.gov.hk/tc/education/astronomy-and-time/time-service/00506-what-year-is-it-today.html"
+    },
+    {
+      "id": "SEXAGENARY",
+      "name": "YT Liu: Sexagenary Cycle (六十干支)",
+      "url": "https://ytliu0.github.io/ChineseCalendar/sexagenary.html"
+    },
+    {
+      "id": "ZP-YONG",
+      "name": "子平真诠：论用神",
+      "url": "https://www.donglishuzhai.net/chapter/3721.html"
+    },
+    {
+      "id": "ZP-CHANGE",
+      "name": "子平真诠：论用神变化",
+      "url": "https://caipu.donglishuzhai.net/chapter/3723.html"
+    },
+    {
+      "id": "ZP-SUCCESS",
+      "name": "子平真诠：论用神成败救应",
+      "url": "https://www.donglishuzhai.net/chapter/3722.html"
+    },
+    {
+      "id": "ZP-CLASH",
+      "name": "子平真诠：论刑冲会合解法",
+      "url": "https://www.donglishuzhai.net/chapter/3720.html"
+    },
+    {
+      "id": "SMTH-2",
+      "name": "维基文库：三命通会/卷二（rev 2292392）",
+      "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%8C&oldid=2292392"
+    },
+    {
+      "id": "QTBJ",
+      "name": "维基文库：穷通宝鉴（rev 2294674）",
+      "url": "https://zh.wikisource.org/w/index.php?title=%E7%AA%AE%E9%80%9A%E5%AF%B6%E9%91%91&oldid=2294674"
+    },
+    {
+      "id": "BEIJING2024",
+      "name": "北京市文物局：2024年二十四节气时刻",
+      "url": "https://wwj.beijing.gov.cn/bjww/wwjzzcslm/1729028/1729037/1729027/436356026/index.html"
+    }
+  ]
+}

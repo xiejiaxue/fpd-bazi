@@ -1,0 +1,10 @@
+{
+  // 纯静态站点：规则引擎以 Pyodide 在访问者浏览器中运行，出生资料不发送到服务器。
+  "name": "fpd-bazi",
+  "compatibility_date": "2026-08-10",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}

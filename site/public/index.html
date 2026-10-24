@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>子平八字规则引擎</title>
+<meta name="description" content="可审计的子平八字规则引擎：四柱、十神、藏干、取格与古籍查表均按规则表计算，在浏览器本地运行。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☯</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>子平八字规则引擎</h1>
+    <p class="sub">四柱、十神、藏干、取格、古籍查表——全部按公开规则表计算，每条结论附规则编号与出处。计算在你的浏览器内完成，出生资料不会上传。</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card" id="form-card">
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" class="tab active" data-mode="birth">出生时刻</button>
+      <button type="button" role="tab" class="tab" data-mode="range">时间区间</button>
+      <button type="button" role="tab" class="tab" data-mode="pillars">直接输入四柱</button>
+    </div>
+
+    <form id="f" autocomplete="off">
+      <div class="grid mode-birth">
+        <label>出生日期<input type="date" name="date" value="2005-06-05" min="1900-01-01" max="2100-12-31" required></label>
+        <label>出生时间<input type="time" name="time" value="15:05" step="60" required></label>
+      </div>
+
+      <div class="grid mode-range" hidden>
+        <label>最早可能<input type="datetime-local" name="range_start" value="2005-06-05T14:30"></label>
+        <label>最晚可能<input type="datetime-local" name="range_end" value="2005-06-05T15:30"></label>
+      </div>
+
+      <div class="grid mode-birth mode-range">
+        <label>时区（UTC 偏移）
+          <select name="tz">
+            <option value="+08:00" selected>UTC+08:00（北京时间）</option>
+            <option value="+09:00">UTC+09:00</option>
+            <option value="+07:00">UTC+07:00</option>
+            <option value="+00:00">UTC+00:00</option>
+            <option value="-05:00">UTC−05:00</option>
+            <option value="-08:00">UTC−08:00</option>
+          </select>
+        </label>
+        <label>性别（用于起运，可不填）
+          <select name="gender">
+            <option value="">不提供</option>
+            <option value="male">男</option>
+            <option value="female">女</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid mode-pillars" hidden>
+        <label>年柱<input name="py" placeholder="乙酉" maxlength="2"></label>
+        <label>月柱<input name="pm" placeholder="辛巳" maxlength="2"></label>
+        <label>日柱<input name="pd" placeholder="庚申" maxlength="2"></label>
+        <label>时柱<input name="ph" placeholder="甲申" maxlength="2"></label>
+      </div>
+
+      <details class="policies mode-birth mode-range">
+        <summary>时间政策（默认值与公式书一致）</summary>
+        <div class="grid">
+          <label>钟表时间
+            <select name="clock_mode">
+              <option value="civil" selected>直接用钟表时间</option>
+              <option value="mean_solar">按经度修正为平太阳时</option>
+            </select>
+          </label>
+          <label class="needs-mean">出生地经度（东经为正）<input type="number" name="lon" step="0.01" min="-180" max="180" value="109"></label>
+          <label>换日时刻
+            <select name="day_boundary">
+              <option value="00:00" selected>00:00 换日</option>
+              <option value="23:00">23:00 换日（子初换日）</option>
+            </select>
+          </label>
+          <label>夜子时（00:00 换日下 23 点）时干
+            <select name="late_zi">
+              <option value="same_day" selected>按当日日干</option>
+              <option value="next_day">按次日日干（夜子时派）</option>
+            </select>
+          </label>
+          <label>旺相休囚死口径
+            <select name="wx">
+              <option value="WX-SMTH" selected>三命通会：六月土旺</option>
+              <option value="WX-SIJI">四季月皆土旺</option>
+            </select>
+          </label>
+        </div>
+        <p class="hint">平太阳时修正 = 4 分钟 ×（经度 − 时区中央经线）；年、月柱始终按真实交节瞬间判断，不受此修正影响。若当地当年实行夏令时，请先换算为标准时间。</p>
+      </details>
+
+      <div class="actions">
+        <button type="submit" id="go" disabled>正在加载引擎…</button>
+        <span id="status" class="status" aria-live="polite"></span>
+      </div>
+    </form>
+  </section>
+
+  <section id="out" class="card" hidden>
+    <div class="out-head">
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-view="report">规则报告</button>
+        <button type="button" class="tab" data-view="json">审计 JSON</button>
+      </div>
+      <div class="dl">
+        <button type="button" id="dl-md" class="ghost">下载报告 .md</button>
+        <button type="button" id="dl-json" class="ghost">下载 JSON</button>
+      </div>
+    </div>
+    <article id="report" class="report"></article>
+    <pre id="json" class="json" hidden></pre>
+  </section>
+
+  <section class="card about">
+    <h2>这是什么</h2>
+    <ul>
+      <li><b>L1 确定性计算</b>：四柱（立春与十二节按交节瞬间，JPL DE440s 星历，1900–2100）、十神、藏干。已与第三方库 lunar_python 对照 2 万个随机样本，全部一致（<a href="docs/verification_report.md">对照报告</a>）。</li>
+      <li><b>L2 规则初筛</b>：月令取格（G-200）、六冲六合三合三会刑害、《子平真诠》初筛规则、《三命通会》《穷通宝鉴》查表。只给候选与触发事实，不判成败。</li>
+      <li><b>假设层</b>：旺衰打分权重无古籍依据，单独标注并附敏感性检验。</li>
+      <li>传统命理未被证明能预测现实事件；本工具不对职业、财富、健康、婚姻、寿命作事实性结论。</li>
+    </ul>
+    <p class="meta">规则全文：<a href="docs/formula_book.md">公式书</a> · <a href="engine/rules.json">rules.json</a> · <a href="engine/bazi_engine.py">引擎源码</a> · <span id="ver"></span></p>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

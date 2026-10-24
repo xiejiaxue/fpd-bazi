@@ -1,6 +1,6 @@
 {
-  "engine_version": "1.3.0",
-  "rules_version": "1.3.0",
+  "engine_version": "1.4.0",
+  "rules_version": "1.4.0",
   "model": "子平月令格局法 / 确定性计算 + 传统候选初筛",
   "scope": "文化性、规则性分析；非经科学验证的人生预测",
   "input": {
@@ -204,6 +204,11 @@
       "tiaohou_primary_visible": true,
       "geju_path": [
         "G-204"
+      ],
+      "patterns_formed": [
+        "P-101",
+        "P-105",
+        "P-106"
       ]
     },
     "classical": {
@@ -344,7 +349,1475 @@
         "url": "https://www.donglishuzhai.net/chapter/3721.html",
         "verification": "本版编码时原文站点无法访问，取格次序依通行版本整理，待以原文快照逐句核对；禄、刃两表已对《三命通会》卷三原文校验"
       }
-    }
+    },
+    "patterns": [
+      {
+        "id": "P-101",
+        "name": "枭神夺食",
+        "aliases": [
+          "倒食",
+          "吞啗煞"
+        ],
+        "tag": "risk",
+        "level": "formed",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "偏印"
+            ],
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "食神"
+            ],
+            "visible": [
+              "hour"
+            ],
+            "hidden": [
+              {
+                "position": "hour",
+                "stem": "庚",
+                "main_qi": true
+              }
+            ]
+          }
+        },
+        "visible_distance": 2,
+        "adjacent": false,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [],
+        "relief_unsourced": [
+          {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "note": "「以财制枭」为后世通行说法，已归档原文未见",
+            "present": true
+          }
+        ],
+        "unresolved": [
+          "食神或财是否为用神（原文：用财、用食皆忌）",
+          "偏印与食神的力量轻重"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "夫倒食者，冲财神之谓也；一名『吞啗煞』。用财神大忌见之，用食神亦忌见之。倒食者，如甲见壬之类。",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "三命通会·卷五",
+            "text": "食怕枭，逢枭则夺",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+            "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-102",
+        "name": "印绶伤食",
+        "aliases": [],
+        "tag": "risk",
+        "level": "partial",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "正印"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "丁",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "食神"
+            ],
+            "visible": [
+              "hour"
+            ],
+            "hidden": [
+              {
+                "position": "hour",
+                "stem": "庚",
+                "main_qi": true
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "正印克食神弱于偏印，原文未分轻重",
+          "日主强弱（原文：却喜身旺）"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "却喜身旺，不喜印綬，亦恐伤其食神也",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-103",
+        "name": "伤官见官",
+        "aliases": [],
+        "tag": "risk",
+        "level": "latent",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "伤官"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "辛",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "正官"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "乙",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [
+          {
+            "ten_gods": [
+              "正印",
+              "偏印"
+            ],
+            "effect": "印制伤官",
+            "quote": {
+              "book": "三命通会·卷六",
+              "text": "伤官若带印，官煞不为刑",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E5%85%AD&oldid=845352",
+              "snapshot": "sources/三命通会_卷六_wikisource_rev845352.txt"
+            },
+            "present": true,
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "丁",
+                "main_qi": false
+              },
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          },
+          {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "effect": "伤官生财、财生官，转化",
+            "quote": {
+              "book": "渊海子平",
+              "text": "如遇伤官者，须见其财为妙；是财能生官也",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+              "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+            },
+            "present": true,
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          }
+        ],
+        "relief_unsourced": [],
+        "unresolved": [
+          "伤官是否「伤尽」",
+          "官星轻重与位置"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "伤官见官，为祸百端",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "伤官务要伤尽；伤之不尽，官来乘旺，其祸不可胜言",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-104",
+        "name": "官杀混杂",
+        "aliases": [
+          "官煞混杂"
+        ],
+        "tag": "mixed",
+        "level": "partial",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "正官"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "乙",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "七杀"
+            ],
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "甲",
+                "main_qi": true
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [
+          {
+            "ten_gods": [
+              "__combined__"
+            ],
+            "effect": "官或杀被合去（去官留杀/去杀留官）",
+            "quote": {
+              "book": "渊海子平",
+              "text": "官煞兩停，合煞為貴",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+              "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+            },
+            "present": false,
+            "visible": [],
+            "hidden": []
+          },
+          {
+            "ten_gods": [
+              "食神",
+              "伤官"
+            ],
+            "effect": "食伤制伏",
+            "quote": {
+              "book": "三命通会·卷五",
+              "text": "身旺有制亦好",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+              "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+            },
+            "present": true,
+            "visible": [
+              "hour"
+            ],
+            "hidden": [
+              {
+                "position": "hour",
+                "stem": "庚",
+                "main_qi": true
+              },
+              {
+                "position": "day",
+                "stem": "辛",
+                "main_qi": false
+              }
+            ]
+          },
+          {
+            "ten_gods": [
+              "正印",
+              "偏印"
+            ],
+            "effect": "印化官杀",
+            "quote": {
+              "book": "三命通会·卷五",
+              "text": "无制，成印局化煞亦可",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+              "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+            },
+            "present": true,
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "丁",
+                "main_qi": false
+              },
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          }
+        ],
+        "relief_unsourced": [],
+        "unresolved": [
+          "日主强弱（原文：身弱官煞混，多夭贫）",
+          "去官还是留杀"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "官星要纯，不要杂",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "三命通会·卷五",
+            "text": "人命官煞俱有谓之混杂，只取财印为用",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+            "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+          },
+          {
+            "book": "三命通会·卷五",
+            "text": "观三命不可以混杂为贱论",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+            "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-105",
+        "name": "食神制杀",
+        "aliases": [
+          "食神制煞"
+        ],
+        "tag": "support",
+        "level": "formed",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "食神"
+            ],
+            "visible": [
+              "hour"
+            ],
+            "hidden": [
+              {
+                "position": "hour",
+                "stem": "庚",
+                "main_qi": true
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "七杀"
+            ],
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "甲",
+                "main_qi": true
+              }
+            ]
+          }
+        },
+        "visible_distance": 3,
+        "adjacent": false,
+        "combined_parties": [],
+        "aggravate": [
+          {
+            "ten_gods": [
+              "偏印"
+            ],
+            "effect": "枭神夺食，制杀之力被破",
+            "quote": {
+              "book": "三命通会·卷六",
+              "text": "食神制煞，逢枭不贫则夭",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E5%85%AD&oldid=845352",
+              "snapshot": "sources/三命通会_卷六_wikisource_rev845352.txt"
+            },
+            "present": true,
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          }
+        ],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "制杀是否太过",
+          "日主强弱"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "喜身旺合杀、喜制伏、喜阳刃",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "七杀却宜制伏，亦不要制之太过",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-106",
+        "name": "杀印相生",
+        "aliases": [
+          "煞印相生"
+        ],
+        "tag": "support",
+        "level": "formed",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "七杀"
+            ],
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "甲",
+                "main_qi": true
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "正印",
+              "偏印"
+            ],
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "丁",
+                "main_qi": false
+              },
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": 1,
+        "adjacent": true,
+        "combined_parties": [],
+        "aggravate": [
+          {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "effect": "财坏印",
+            "quote": {
+              "book": "三命通会·卷五",
+              "text": "印怕财，贪财则坏",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+              "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+            },
+            "present": true,
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          }
+        ],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "杀与印的轻重"
+        ],
+        "quotes": [
+          {
+            "book": "三命通会·卷五",
+            "text": "煞不离印，印不离煞，煞印相生，功名显达",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+            "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-107",
+        "name": "官印相生",
+        "aliases": [
+          "官印两全"
+        ],
+        "tag": "support",
+        "level": "partial",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "正官"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "乙",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "正印",
+              "偏印"
+            ],
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "丁",
+                "main_qi": false
+              },
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [
+          {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "effect": "财星破印",
+            "quote": {
+              "book": "渊海子平",
+              "text": "有官有印，畏财兴，助财为祸",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+              "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+            },
+            "present": true,
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          }
+        ],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "官印是否「无破」"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "有官有印，无破作廊庙之材",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "如带印綬，须带官星，谓之官印两全",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-108",
+        "name": "财官相生",
+        "aliases": [
+          "财生官"
+        ],
+        "tag": "support",
+        "level": "latent",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "正官"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "乙",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [
+          {
+            "ten_gods": [
+              "伤官"
+            ],
+            "effect": "伤官伤官星",
+            "quote": {
+              "book": "三命通会·卷五",
+              "text": "官怕伤，被伤则祸",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+              "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+            },
+            "present": true,
+            "visible": [],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "辛",
+                "main_qi": false
+              }
+            ]
+          },
+          {
+            "ten_gods": [
+              "劫财"
+            ],
+            "effect": "劫财分财",
+            "quote": {
+              "book": "三命通会·卷五",
+              "text": "财怕劫，被劫则分",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+              "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+            },
+            "present": false,
+            "visible": [],
+            "hidden": []
+          }
+        ],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "日主能否任财官"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "财生官，官生印，印生身，富贵双全",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-109",
+        "name": "财滋七杀",
+        "aliases": [
+          "财生杀",
+          "财党杀"
+        ],
+        "tag": "risk",
+        "level": "partial",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "七杀"
+            ],
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "甲",
+                "main_qi": true
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [
+          {
+            "ten_gods": [
+              "食神"
+            ],
+            "effect": "食神制杀",
+            "quote": {
+              "book": "渊海子平",
+              "text": "喜身旺合杀、喜制伏、喜阳刃",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+              "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+            },
+            "present": true,
+            "visible": [
+              "hour"
+            ],
+            "hidden": [
+              {
+                "position": "hour",
+                "stem": "庚",
+                "main_qi": true
+              }
+            ]
+          }
+        ],
+        "relief_unsourced": [],
+        "unresolved": [
+          "日主强弱（身强杀浅时财滋弱杀另论）"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "但忌财旺，财能生杀故也",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "干党财，财党杀，杀攻身，凶穷两逼",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-110",
+        "name": "比劫夺财",
+        "aliases": [
+          "劫财分财",
+          "群劫争财"
+        ],
+        "tag": "risk",
+        "level": "absent",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "劫财"
+            ],
+            "visible": [],
+            "hidden": []
+          },
+          "b": {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [],
+        "relief_unsourced": [
+          {
+            "ten_gods": [
+              "正官",
+              "七杀"
+            ],
+            "note": "「官杀制劫护财」为后世通行说法，已归档原文未见",
+            "present": true
+          },
+          {
+            "ten_gods": [
+              "食神",
+              "伤官"
+            ],
+            "note": "「食伤通关」为后世通行说法，已归档原文未见",
+            "present": true
+          }
+        ],
+        "unresolved": [
+          "财星轻重与日主强弱"
+        ],
+        "quotes": [
+          {
+            "book": "三命通会·卷五",
+            "text": "财怕劫，被劫则分",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+            "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "乙以戊己为财，甲见夺己坏戊",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-111",
+        "name": "贪财坏印",
+        "aliases": [
+          "财坏印",
+          "财星破印"
+        ],
+        "tag": "risk",
+        "level": "partial",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "正印",
+              "偏印"
+            ],
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "丁",
+                "main_qi": false
+              },
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [
+          {
+            "ten_gods": [
+              "比肩",
+              "劫财"
+            ],
+            "effect": "比劫护印、制财",
+            "quote": {
+              "book": "三命通会·卷六",
+              "text": "却要见比劫助身",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E5%85%AD&oldid=845352",
+              "snapshot": "sources/三命通会_卷六_wikisource_rev845352.txt"
+            },
+            "present": true,
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "戊",
+                "main_qi": true
+              },
+              {
+                "position": "month",
+                "stem": "戊",
+                "main_qi": false
+              },
+              {
+                "position": "day",
+                "stem": "戊",
+                "main_qi": true
+              },
+              {
+                "position": "hour",
+                "stem": "戊",
+                "main_qi": false
+              }
+            ]
+          },
+          {
+            "ten_gods": [
+              "正官",
+              "七杀"
+            ],
+            "effect": "财生官、官生印，通关",
+            "quote": {
+              "book": "三命通会·卷六",
+              "text": "印绶有官有财，则财生官，官生印，印生身",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E5%85%AD&oldid=845352",
+              "snapshot": "sources/三命通会_卷六_wikisource_rev845352.txt"
+            },
+            "present": true,
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "乙",
+                "main_qi": false
+              },
+              {
+                "position": "month",
+                "stem": "甲",
+                "main_qi": true
+              }
+            ]
+          }
+        ],
+        "relief_unsourced": [],
+        "unresolved": [
+          "印是否有根（原文：印绶有根，逢财则发）"
+        ],
+        "quotes": [
+          {
+            "book": "三命通会·卷五",
+            "text": "印怕财，贪财则坏",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E4%BA%94&oldid=2706483",
+            "snapshot": "sources/三命通会_卷五_wikisource_rev2706483.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "印綬畏财",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-112",
+        "name": "伤官佩印",
+        "aliases": [
+          "伤官带印"
+        ],
+        "tag": "support",
+        "level": "partial",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "伤官"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "辛",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "正印",
+              "偏印"
+            ],
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "丁",
+                "main_qi": false
+              },
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [
+          {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "effect": "财破印",
+            "quote": {
+              "book": "三命通会·卷六",
+              "text": "伤官若带印，不宜逢财",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E5%85%AD&oldid=845352",
+              "snapshot": "sources/三命通会_卷六_wikisource_rev845352.txt"
+            },
+            "present": true,
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          }
+        ],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "伤官与印的轻重、日主强弱"
+        ],
+        "quotes": [
+          {
+            "book": "三命通会·卷六",
+            "text": "伤官若带印，官煞不为刑",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E4%B8%89%E5%91%BD%E9%80%9A%E6%9C%83/%E5%8D%B7%E5%85%AD&oldid=845352",
+            "snapshot": "sources/三命通会_卷六_wikisource_rev845352.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-113",
+        "name": "伤官生财",
+        "aliases": [
+          "伤官用财"
+        ],
+        "tag": "support",
+        "level": "latent",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "伤官"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "辛",
+                "main_qi": false
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [
+          {
+            "ten_gods": [
+              "正印",
+              "偏印"
+            ],
+            "effect": "印制伤官、伤官难以生财",
+            "quote": {
+              "book": "渊海子平",
+              "text": "伤官用财，不宜印乡",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+              "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+            },
+            "present": true,
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "day",
+                "stem": "丁",
+                "main_qi": false
+              },
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          }
+        ],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "日主能否任财"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "伤官用财乃为福",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "用伤官格局，见财方可用",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-114",
+        "name": "食神生财",
+        "aliases": [],
+        "tag": "support",
+        "level": "partial",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "食神"
+            ],
+            "visible": [
+              "hour"
+            ],
+            "hidden": [
+              {
+                "position": "hour",
+                "stem": "庚",
+                "main_qi": true
+              }
+            ]
+          },
+          "b": {
+            "ten_gods": [
+              "正财",
+              "偏财"
+            ],
+            "visible": [],
+            "hidden": [
+              {
+                "position": "year",
+                "stem": "癸",
+                "main_qi": false
+              },
+              {
+                "position": "hour",
+                "stem": "壬",
+                "main_qi": false
+              }
+            ]
+          }
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [
+          {
+            "ten_gods": [
+              "偏印"
+            ],
+            "effect": "枭神夺食",
+            "quote": {
+              "book": "渊海子平",
+              "text": "用财神大忌见之，用食神亦忌见之",
+              "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+              "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+            },
+            "present": true,
+            "visible": [
+              "month"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "丙",
+                "main_qi": false
+              }
+            ]
+          }
+        ],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "日主强弱（原文：却喜身旺）"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "恒不喜见官星，忌倒食，恐伤其食神；喜财神相生",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-115",
+        "name": "合杀",
+        "aliases": [
+          "贪合忘杀"
+        ],
+        "tag": "support",
+        "level": "absent",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "七杀"
+            ],
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "甲",
+                "main_qi": true
+              }
+            ]
+          },
+          "combinations": []
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "合而化否（五合化气需另判）",
+          "日主强弱（原文：身旺合杀为妙）"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "如甲以庚为七杀，喜丙丁制之；乙合之，谓之『贪合忘杀』",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "惟其身旺合杀为妙",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      },
+      {
+        "id": "P-116",
+        "name": "杀刃相济",
+        "aliases": [
+          "刃杀俱全",
+          "羊刃驾杀"
+        ],
+        "tag": "mixed",
+        "level": "absent",
+        "parties": {
+          "a": {
+            "ten_gods": [
+              "七杀"
+            ],
+            "visible": [
+              "year"
+            ],
+            "hidden": [
+              {
+                "position": "month",
+                "stem": "甲",
+                "main_qi": true
+              }
+            ]
+          },
+          "yangren_branch": "午",
+          "yangren_positions": []
+        },
+        "visible_distance": null,
+        "adjacent": null,
+        "combined_parties": [],
+        "aggravate": [],
+        "relief": [],
+        "relief_unsourced": [],
+        "unresolved": [
+          "杀刃是否两停（力量相当）",
+          "日主强弱"
+        ],
+        "quotes": [
+          {
+            "book": "渊海子平",
+            "text": "杀无刃不显，刃无杀不威",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          },
+          {
+            "book": "渊海子平",
+            "text": "若命中元有杀刃，岁运又逢之，其祸非常",
+            "url": "https://zh.wikisource.org/w/index.php?title=%E6%B7%B5%E6%B5%B7%E5%AD%90%E5%B9%B3&oldid=2593607",
+            "snapshot": "sources/渊海子平_wikisource_rev2593607.txt"
+          }
+        ],
+        "final_judgement": false
+      }
+    ]
   },
   "traditional_candidates": [
     {
@@ -909,6 +2382,93 @@
         }
       },
       "method": "按 geju_selection.order 固定次序取格；只产生候选，不判成败"
+    },
+    {
+      "id": "P-100",
+      "type": "combination_patterns",
+      "result": [
+        {
+          "id": "P-101",
+          "name": "枭神夺食",
+          "level": "formed"
+        },
+        {
+          "id": "P-102",
+          "name": "印绶伤食",
+          "level": "partial"
+        },
+        {
+          "id": "P-103",
+          "name": "伤官见官",
+          "level": "latent"
+        },
+        {
+          "id": "P-104",
+          "name": "官杀混杂",
+          "level": "partial"
+        },
+        {
+          "id": "P-105",
+          "name": "食神制杀",
+          "level": "formed"
+        },
+        {
+          "id": "P-106",
+          "name": "杀印相生",
+          "level": "formed"
+        },
+        {
+          "id": "P-107",
+          "name": "官印相生",
+          "level": "partial"
+        },
+        {
+          "id": "P-108",
+          "name": "财官相生",
+          "level": "latent"
+        },
+        {
+          "id": "P-109",
+          "name": "财滋七杀",
+          "level": "partial"
+        },
+        {
+          "id": "P-110",
+          "name": "比劫夺财",
+          "level": "absent"
+        },
+        {
+          "id": "P-111",
+          "name": "贪财坏印",
+          "level": "partial"
+        },
+        {
+          "id": "P-112",
+          "name": "伤官佩印",
+          "level": "partial"
+        },
+        {
+          "id": "P-113",
+          "name": "伤官生财",
+          "level": "latent"
+        },
+        {
+          "id": "P-114",
+          "name": "食神生财",
+          "level": "partial"
+        },
+        {
+          "id": "P-115",
+          "name": "合杀",
+          "level": "absent"
+        },
+        {
+          "id": "P-116",
+          "name": "杀刃相济",
+          "level": "absent"
+        }
+      ],
+      "method": "两类十神同现（透/藏）、七杀被合、羊刃见杀；只判结构程度，不判成败"
     },
     {
       "id": "G-101",

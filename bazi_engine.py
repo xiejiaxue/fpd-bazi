@@ -18,7 +18,7 @@ HERE = Path(__file__).resolve().parent
 DEFAULT_TERMS = HERE / "terms_1900_2100.json"
 POSITIONS = ["year", "month", "day", "hour"]
 POS_CN = {"year": "年", "month": "月", "day": "日", "hour": "时"}
-ENGINE_VERSION = "1.3.0"
+ENGINE_VERSION = "1.4.0"
 DEFAULT_BOUNDARY_MARGIN_S = 120
 MAX_RANGE_HOURS = 48
 TROPICAL_YEAR_DAYS = 365.2422
@@ -477,6 +477,79 @@ def select_geju(detail: dict, r: dict) -> dict:
             "limits": gs["limits"], "source": gs["source"]}
 
 
+def _ten_god_presence(detail: dict) -> dict:
+    """每个十神：透于哪些天干位、藏于哪些地支（含是否本气）。日主自身不计。"""
+    pres: dict = {}
+    for p, t in detail["visible_ten_gods"].items():
+        pres.setdefault(t, {"visible": [], "hidden": []})["visible"].append(p)
+    for p in POSITIONS:
+        for i, h in enumerate(detail["hidden_stems"][p]):
+            pres.setdefault(h["ten_god"], {"visible": [], "hidden": []})["hidden"].append({"position": p, "stem": h["stem"], "main_qi": i == 0})
+    return pres
+
+
+def eval_patterns(detail: dict, r: dict) -> list[dict]:
+    """P-100 十神组合格局：只判断结构出现的程度（formed/partial/latent/absent），附加重、化解与未判条件。"""
+    cp = r["combination_patterns"]
+    pres = _ten_god_presence(detail)
+    vis_idx = {"year": 0, "month": 1, "hour": 3}
+    combos = detail["stem_relations"]["five_combinations"]
+    combined_pos = {q for c in combos for q in c["positions"] if q != "day"}
+
+    def side(tgs):
+        v = sorted({p for t in tgs for p in pres.get(t, {}).get("visible", [])}, key=vis_idx.get)
+        h = [x for t in tgs for x in pres.get(t, {}).get("hidden", [])]
+        return {"ten_gods": tgs, "visible": v, "hidden": h}
+
+    def level(a, b):
+        if a["visible"] and b["visible"]:
+            return "formed"
+        if (a["visible"] or a["hidden"]) and (b["visible"] or b["hidden"]):
+            return "partial" if (a["visible"] or b["visible"]) else "latent"
+        return "absent"
+
+    def factors(items, exclude):
+        out = []
+        for f in items:
+            if f["ten_gods"] == ["__combined__"]:
+                hit = sorted(exclude & combined_pos, key=vis_idx.get)
+                out.append({**f, "present": bool(hit), "visible": hit, "hidden": []})
+                continue
+            s = side(f["ten_gods"])
+            out.append({**f, "present": bool(s["visible"] or s["hidden"]), "visible": s["visible"], "hidden": s["hidden"]})
+        return out
+
+    results = []
+    for pat in cp["patterns"]:
+        a = side(pat["a"])
+        if pat["kind"] == "pair":
+            b = side(pat["b"])
+            lv = level(a, b)
+            parties = {"a": a, "b": b}
+            dist = min((abs(vis_idx[x] - vis_idx[y]) for x in a["visible"] for y in b["visible"]), default=None)
+        elif pat["kind"] == "combined_sha":
+            hits = [c for c in combos if any(q in a["visible"] for q in c["positions"])]
+            lv = "formed" if hits else "absent"
+            parties = {"a": a, "combinations": hits}
+            dist = None
+        else:  # yangren_sha
+            ren = r["classical_tables"]["lu_yangren"]["yangren"].get(detail["day_master"])
+            ren_pos = [p for p in POSITIONS if ren and detail["branches"][p] == ren]
+            has_sha = bool(a["visible"] or a["hidden"])
+            lv = ("formed" if a["visible"] else "partial") if ren_pos and has_sha else "absent"
+            parties = {"a": a, "yangren_branch": ren, "yangren_positions": ren_pos}
+            dist = None
+        party_pos = set(a["visible"]) | set(parties.get("b", {}).get("visible", []))
+        rec = {"id": pat["id"], "name": pat["name"], "aliases": pat["aliases"], "tag": pat["tag"], "level": lv, "parties": parties,
+               "visible_distance": dist, "adjacent": dist == 1 if dist is not None else None,
+               "combined_parties": sorted(party_pos & combined_pos, key=vis_idx.get),
+               "aggravate": factors(pat["aggravate"], party_pos), "relief": factors(pat["relief"], party_pos),
+               "relief_unsourced": [{**f, "present": any(side([t])["visible"] or side([t])["hidden"] for t in f["ten_gods"])} for f in pat["relief_unsourced"]],
+               "unresolved": pat["unresolved"], "quotes": pat["quotes"], "final_judgement": False}
+        results.append(rec)
+    return results
+
+
 def strength_hypothesis(detail: dict, r: dict, hid: str = "STRENGTH-H1") -> dict:
     """假设层：编者自定权重的帮身/耗身比，附 9 组权重的敏感性检验。不进入任何规则。"""
     h = r["hypotheses"][hid]
@@ -671,6 +744,12 @@ def solve(request: dict, r: dict, terms: list[dict] | None = None) -> dict:
         detail["facts"]["geju_path"] = detail["geju"]["path"]
         structural_trace.append({"id": "G-200", "type": "geju_selection", "result": detail["geju"],
                                  "method": "按 geju_selection.order 固定次序取格；只产生候选，不判成败"})
+    if "combination_patterns" in r:
+        detail["patterns"] = eval_patterns(detail, r)
+        detail["facts"]["patterns_formed"] = [x["id"] for x in detail["patterns"] if x["level"] == "formed"]
+        structural_trace.append({"id": "P-100", "type": "combination_patterns",
+                                 "result": [{k: x[k] for k in ("id", "name", "level")} for x in detail["patterns"]],
+                                 "method": "两类十神同现（透/藏）、七杀被合、羊刃见杀；只判结构程度，不判成败"})
     candidates, rule_trace = screen_rules(detail["facts"], r)
     luck, luck_info = None, None
     direction = request.get("luck_direction")
@@ -811,6 +890,49 @@ def _render_geju(g: dict | None) -> list[str]:
     return L
 
 
+LEVEL_CN = {"formed": "明见（两方透干）", "partial": "半见（一透一藏）", "latent": "暗藏（两方只在地支）"}
+
+
+def _render_patterns(pats: list | None) -> list[str]:
+    if pats is None:
+        return []
+    shown = [p for p in pats if p["level"] != "absent"]
+    L = ["## D4. 十神组合格局（P-100，只判结构、不判成败）", ""]
+    if not shown:
+        return L + ["- 16 条组合规则均未出现。", ""]
+
+    def where(side):
+        v = "、".join(POS_CN[q] + "干" for q in side.get("visible", []))
+        h = "、".join(f"{POS_CN[x['position']]}支藏{x['stem']}" for x in side.get("hidden", []))
+        return "；".join(x for x in (v, h) if x) or "—"
+    order = {"formed": 0, "partial": 1, "latent": 2}
+    for p in sorted(shown, key=lambda x: (order[x["level"]], x["id"])):
+        alias = f"（{'、'.join(p['aliases'])}）" if p["aliases"] else ""
+        L.append(f"### {p['id']} {p['name']}{alias} · {LEVEL_CN[p['level']]}")
+        pa = p["parties"]
+        if "b" in pa:
+            L.append(f"- {'/'.join(pa['a']['ten_gods'])}：{where(pa['a'])}　｜　{'/'.join(pa['b']['ten_gods'])}：{where(pa['b'])}"
+                     + ("（年月相邻）" if p["adjacent"] else ("（隔位）" if p["visible_distance"] else "")))
+        elif "combinations" in pa:
+            L.append("- " + "；".join(f"{'、'.join(POS_CN[q] for q in c['positions'])}干 {''.join(c['stems'])} 五合" for c in pa["combinations"]))
+        else:
+            L.append(f"- 七杀：{where(pa['a'])}　｜　羊刃 {pa['yangren_branch']}：在{'、'.join(POS_CN[q] + '支' for q in pa['yangren_positions'])}")
+        if p["combined_parties"]:
+            L.append(f"- 当事干被合：{'、'.join(POS_CN[q] + '干' for q in p['combined_parties'])}（合而化否未判）")
+        for lab, key in (("加重", "aggravate"), ("化解", "relief")):
+            for f in p[key]:
+                state = ("出现：" + where(f)) if f["present"] else "未出现"
+                L.append(f"- {lab}·{f['effect']}：{state}（{f['quote']['book']}「{f['quote']['text']}」）")
+        for f in p["relief_unsourced"]:
+            L.append(f"- 提示（无原文依据）：{f['note']}；{'/'.join(f['ten_gods'])}{'出现' if f['present'] else '未出现'}")
+        L.append("- 原文：" + "；".join(f"{q['book']}「{q['text']}」" for q in p["quotes"]))
+        L.append("- 未判：" + "；".join(p["unresolved"]))
+        L.append("")
+    absent = [p["id"] + p["name"] for p in pats if p["level"] == "absent"]
+    L += [f"未出现：{'、'.join(absent)}", ""]
+    return L
+
+
 def _render_hypothesis(hyps: dict) -> list[str]:
     h = hyps.get("STRENGTH-H1")
     if not h:
@@ -858,6 +980,7 @@ def render_markdown(result: dict) -> str:
           f"- 月令透出藏干：{_fmt_val(c['month_hidden_exposed'])}", ""]
     L += _render_classical(c["classical"], c["stems"])
     L += _render_geju(c.get("geju"))
+    L += _render_patterns(c.get("patterns"))
     L += ["## E. 干支关系（仅结构事实）", ""]
     rel_lines = []
     for x in c["stem_relations"]["five_combinations"]:

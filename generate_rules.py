@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 import classic_tables
+import patterns
 O=Path(__file__).resolve().parent
 S=list('甲乙丙丁戊己庚辛壬癸')
 B=list('子丑寅卯辰巳午未申酉戌亥')
@@ -24,7 +25,7 @@ example=[
 ('G-113','月支冲合互见：并列待审',{'all':[{'fact':'has_month_branch_clash','op':'eq','value':True},{'fact':'has_month_branch_combination','op':'eq','value':True}]},'conflict','月支同时被冲与被合，涉及「合以解冲」「冲以解合」的先后、远近判断，V1 不选择任一结论。','3720.html'),
 ]
 rules={
- 'schema_version':'1.3.0',
+ 'schema_version':'1.4.0',
  'system':'子平八字_AI_可审计规则集',
  'scope':'公历换算后之四柱、干支、十神、藏干、关系识别及格局初筛。不输出已经证明的个人命运预测。',
  'default_policy':{'year_boundary':'lichun_instant','month_boundary':'12_jie_instant','day_boundary':'00:00','hour_boundaries':'two_hour_zi_23:00','clock':'civil_local_standard','solar_time':'off','unsupported':'return_unresolved'},
@@ -84,6 +85,7 @@ rules={
             'verification':'本版编码时原文站点无法访问，取格次序依通行版本整理，待以原文快照逐句核对；禄、刃两表已对《三命通会》卷三原文校验'},
   'limits':['只决定「取哪个格」的候选，不判断成格、破格、清浊与救应','「透干会支，取其清者」中的「清」未定义：多候选时一律并列']
  },
+ 'combination_patterns':patterns.build(),
  'hypotheses':{
   'STRENGTH-H1':{
    'layer':'hypothesis',

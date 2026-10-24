@@ -493,5 +493,104 @@ class GejuSelectionTest(unittest.TestCase):
         self.assertEqual(R['hidden_stems_main_first']['巳'], ['丙', '庚', '戊'])
 
 
+def _ref_patterns(pil):
+    """组合格局参考实现：与 eval_patterns 分开独立编写，只依赖原始定义。返回 {id: (level, aggravate 出现集合, relief 出现集合)}。"""
+    S = '甲乙丙丁戊己庚辛壬癸'
+    EL = dict(zip(S, '木木火火土土金金水水'))
+    HID = {'子': '癸', '丑': '己癸辛', '寅': '甲丙戊', '卯': '乙', '辰': '戊乙癸', '巳': '丙庚戊', '午': '丁己',
+           '未': '己丁乙', '申': '庚壬戊', '酉': '辛', '戌': '戊辛丁', '亥': '壬甲'}
+    HE = ['甲己', '乙庚', '丙辛', '丁壬', '戊癸']
+    REN = {'甲': '卯', '丙': '午', '戊': '午', '庚': '酉', '壬': '子'}
+    dm = pil[2][0]
+    def god(x):
+        d = ('木火土金水'.index(EL[x]) - '木火土金水'.index(EL[dm])) % 5
+        return [['比肩', '劫财'], ['食神', '伤官'], ['偏财', '正财'], ['七杀', '正官'], ['偏印', '正印']][d][0 if S.index(x) % 2 == S.index(dm) % 2 else 1]
+    vis = {i: pil[i][0] for i in (0, 1, 3)}
+    hid = [(i, h) for i in range(4) for h in HID[pil[i][1]]]
+    def has(tgs, where):
+        if where == 'v':
+            return any(god(x) in tgs for x in vis.values())
+        return any(god(h) in tgs for _, h in hid)
+    combined = {i for i in (0, 1, 3) for j in range(4) if j != i and (pil[i][0] + pil[j][0] in HE or pil[j][0] + pil[i][0] in HE)}
+    out = {}
+    for pat in R['combination_patterns']['patterns']:
+        A, B = pat['a'], pat['b']
+        if pat['kind'] == 'pair':
+            av, bv = has(A, 'v'), has(B, 'v')
+            ah, bh = has(A, 'h'), has(B, 'h')
+            if av and bv: lv = 'formed'
+            elif (av or ah) and (bv or bh): lv = 'partial' if (av or bv) else 'latent'
+            else: lv = 'absent'
+            party = {i for i, x in vis.items() if god(x) in A + B}
+        elif pat['kind'] == 'combined_sha':
+            sha = [i for i, x in vis.items() if god(x) == '七杀']
+            lv = 'formed' if any(i in combined for i in sha) else 'absent'
+            party = set(sha)
+        else:
+            ren = REN.get(dm)
+            has_ren = any(p[1] == ren for p in pil)
+            lv = ('formed' if has(A, 'v') else 'partial') if has_ren and (has(A, 'v') or has(A, 'h')) else 'absent'
+            party = {i for i, x in vis.items() if god(x) in A}
+        def present(fs):
+            res = set()
+            for f in fs:
+                if f['ten_gods'] == ['__combined__']:
+                    if party & combined: res.add(f['effect'])
+                elif has(f['ten_gods'], 'v') or has(f['ten_gods'], 'h'):
+                    res.add(f['effect'])
+            return res
+        out[pat['id']] = (lv, present(pat['aggravate']), present(pat['relief']))
+    return out
+
+
+class CombinationPatternTest(unittest.TestCase):
+    def pats(self, *pil):
+        x = solve({'pillars': dict(zip(POSITIONS, pil))}, R)
+        return {p['id']: p for p in x['computed']['patterns']}
+
+    def test_golden_cases(self):
+        # 甲日：壬=偏印、丙=食神 → 枭神夺食明见；《渊海子平》「如甲见壬之类」
+        p = self.pats('壬子', '丙寅', '甲子', '庚午')
+        self.assertEqual(p['P-101']['level'], 'formed')
+        self.assertEqual(p['P-105']['level'], 'formed')  # 丙食神、庚七杀
+        self.assertTrue(any(f['present'] for f in p['P-105']['aggravate']))  # 逢枭
+        # 甲日：丁=伤官、辛=正官，癸=正印 → 伤官见官明见，印可化解
+        p = self.pats('丁卯', '辛亥', '甲子', '癸酉')
+        self.assertEqual(p['P-103']['level'], 'formed')
+        self.assertTrue(next(f for f in p['P-103']['relief'] if f['effect'] == '印制伤官')['present'])
+        # 甲日：庚=七杀、辛=正官，乙合庚 → 官杀混杂、合杀，均明见
+        p = self.pats('庚午', '辛巳', '甲子', '乙亥')
+        self.assertEqual(p['P-104']['level'], 'formed')
+        self.assertEqual(p['P-115']['level'], 'formed')
+        self.assertTrue(next(f for f in p['P-104']['relief'] if f['ten_gods'] == ['__combined__'])['present'])
+        # 杀刃：甲日卯为刃、庚透 → 明见；阴干无刃 → 不出现
+        self.assertEqual(self.pats('庚午', '丁卯', '甲子', '甲子')['P-116']['level'], 'formed')
+        self.assertEqual(self.pats('辛酉', '己卯', '乙丑', '乙酉')['P-116']['level'], 'absent')
+        # 本命例：偏印与食神只在地支 → 枭神夺食暗藏
+        p = self.pats('乙酉', '辛巳', '庚申', '甲申')
+        self.assertEqual(p['P-101']['level'], 'latent')
+        self.assertEqual(p['P-110']['level'], 'formed')
+        self.assertTrue(p['P-110']['adjacent'])
+
+    def test_matches_independent_reference(self):
+        rnd = random.Random(11)
+        for _ in range(20000):
+            pil = [index_pair(rnd.randrange(60), R) for _ in range(4)]
+            x = solve({'pillars': dict(zip(POSITIONS, pil))}, R)
+            got = {p['id']: (p['level'], {f['effect'] for f in p['aggravate'] if f['present']},
+                             {f['effect'] for f in p['relief'] if f['present']}) for p in x['computed']['patterns']}
+            self.assertEqual(got, _ref_patterns(pil), pil)
+
+    def test_every_quote_in_snapshot(self):
+        for p in R['combination_patterns']['patterns']:
+            for q in p['quotes'] + [f['quote'] for f in p['aggravate'] + p['relief']]:
+                txt = (D / q['snapshot']).read_text(encoding='utf-8').replace('\n', '')
+                self.assertIn(q['text'], txt, (p['id'], q['text']))
+
+    def test_no_final_judgement(self):
+        x = solve({'pillars': {'year': '壬子', 'month': '丙寅', 'day': '甲子', 'hour': '庚午'}}, R)
+        self.assertTrue(all(p['final_judgement'] is False for p in x['computed']['patterns']))
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
